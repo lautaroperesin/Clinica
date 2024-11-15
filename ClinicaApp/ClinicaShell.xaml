@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ClinicaApp.ClinicaShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   xmlns:local="clr-namespace:ClinicaApp"
+    xmlns:views="clr-namespace:ClinicaApp.Views"
+    xmlns:viewmodels="clr-namespace:ClinicaApp.ViewModels"
+    xmlns:contentviews="clr-namespace:ClinicaApp.ContentViews"
+    FlyoutBehavior="Flyout"
+    Title="ClinicaApp"
+    FlyoutBackgroundImage="photo.jpg"
+    FlyoutBackgroundImageAspect="AspectFill"
+    FlyoutHeaderBehavior="CollapseOnScroll">
+
+    <Shell.BindingContext>
+        <viewmodels:ClinicaShellViewModel />
+    </Shell.BindingContext>
+
+    <Shell.FlyoutHeader>
+        <contentviews:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <contentviews:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Route="ClinicaApp"
+                FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
+        <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+        <!--<ShellContent
+            Title="Productos en oferta"
+            ContentTemplate="{DataTemplate views:ProductosOfertaView}"
+            Route="ProductosOferta" />
+
+        <Tab Title="Productos"
+             Route="Productos"
+             Icon="paw.png">
+            <ShellContent
+                Title="Lista"
+                ContentTemplate="{DataTemplate views:ProductosView}"
+                Icon="cat.png"
+                Route="ListaProductos" />
+
+            <ShellContent
+                Title="Agregar producto"
+                ContentTemplate="{DataTemplate views:AddEditProductoView}"
+                Icon="dog.png"
+                Route="AgregarEditarProducto" />
+        </Tab>-->
+    </FlyoutItem>
+    <MenuItem Text="Cerrar sesión"
+              Command="{Binding LogoutCommand}"/>
+    <ShellContent
+             Title="Iniciar sesión"
+             ContentTemplate="{DataTemplate views:IniciarSesionView}"
+             Route="Login" 
+             IsVisible="{Binding IsUserLogout}"/>
+
+</Shell>
