@@ -19,8 +19,6 @@ namespace ClinicaServices.Models
         public string Apellido { get; set; } = string.Empty;
         [MaxLength(100)]
         public string? Direccion { get; set; } = string.Empty;
-        [MaxLength(100)]
-        public string? Email { get; set; } = string.Empty;
         [MaxLength(20)]
         public string? Telefono { get; set; } = string.Empty;
         [Required(ErrorMessage = "El DNI es obligatorio")]

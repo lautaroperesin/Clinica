@@ -25,7 +25,10 @@ namespace ClinicaBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Paciente>>> GetPacientes()
         {
-            return await _context.Pacientes.ToListAsync();
+            return await _context.Pacientes
+                .Include(p => p.Mutual)
+                .Include(p => p.Localidad)
+                .ToListAsync();
         }
 
         // GET: api/Pacientes/5
