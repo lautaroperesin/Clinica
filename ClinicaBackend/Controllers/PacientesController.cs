@@ -78,6 +78,9 @@ namespace ClinicaBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Paciente>> PostPaciente(Paciente paciente)
         {
+            if (paciente == null)
+                return BadRequest("El paciente no puede ser nulo.");
+
             _context.Pacientes.Add(paciente);
             await _context.SaveChangesAsync();
 

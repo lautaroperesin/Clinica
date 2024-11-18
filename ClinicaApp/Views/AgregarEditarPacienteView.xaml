@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:viewModels="clr-namespace:ClinicaApp.ViewModels"
+             x:Class="ClinicaApp.Views.AgregarEditarPacienteView"
+             Title="NuevoPaciente">
+    <ContentPage.BindingContext>
+        <viewModels:AgregarEditarPacienteViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Nombre -->
+            <Entry Placeholder="Nombre" 
+                   Text="{Binding Nombre}" />
+
+            <!-- Apellido -->
+            <Entry Placeholder="Apellido" 
+                   Text="{Binding Apellido}" />
+
+            <!-- Dirección -->
+            <Entry Placeholder="Dirección" 
+                   Text="{Binding Direccion}" />
+
+            <!-- Teléfono -->
+            <Entry Placeholder="Teléfono" 
+                   Text="{Binding Telefono}"  />
+
+            <!-- Email -->
+            <Entry Placeholder="Correo Electrónico" 
+                   Text="{Binding Email}" 
+                   Keyboard="Email" />
+
+            <!-- Fecha de Nacimiento -->
+            <DatePicker Date="{Binding FechaNacimiento}" />
+
+            <!-- Documento -->
+            <Entry Placeholder="Documento (DNI)" 
+                   Text="{Binding Documento}" />
+
+            <!-- Mutual -->
+            <Picker Title="Seleccione una mutual" 
+                    ItemsSource="{Binding ListaMutuales}" 
+                    ItemDisplayBinding="{Binding Nombre}"
+                    SelectedItem="{Binding MutualSeleccionada, Mode=TwoWay}" />
+
+            <!-- Localidad -->
+            <Picker Title="Seleccione una localidad" 
+                    ItemsSource="{Binding ListaLocalidades}"
+                    ItemDisplayBinding="{Binding Nombre}" 
+                    SelectedItem="{Binding LocalidadSeleccionada, Mode=TwoWay}" />
+
+            <!-- Botón Guardar -->
+            <Button Text="Guardar Paciente" 
+                    Command="{Binding GuardarPacienteCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            
+            <!-- Botón Volver -->
+            <Button Text="Volver" 
+                    Command="{Binding VolverCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

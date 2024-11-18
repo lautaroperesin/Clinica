@@ -33,25 +33,22 @@
         Route="MainPage" />
 
         <!--<ShellContent
-            Title="Productos en oferta"
-            ContentTemplate="{DataTemplate views:ProductosOfertaView}"
-            Route="ProductosOferta" />
+            Title="Agregar paciente"
+            ContentTemplate="{DataTemplate views:PacientesView}"
+            Route="ProductosOferta" />-->
 
-        <Tab Title="Productos"
-             Route="Productos"
-             Icon="paw.png">
+        <Tab Title="Pacientes"
+             Route="Pacientes">
             <ShellContent
                 Title="Lista"
-                ContentTemplate="{DataTemplate views:ProductosView}"
-                Icon="cat.png"
-                Route="ListaProductos" />
+                ContentTemplate="{DataTemplate views:PacientesView}"
+                Route="ListaPacientes" />
 
             <ShellContent
-                Title="Agregar producto"
-                ContentTemplate="{DataTemplate views:AddEditProductoView}"
-                Icon="dog.png"
-                Route="AgregarEditarProducto" />
-        </Tab>-->
+                Title="Agregar paciente"
+                ContentTemplate="{DataTemplate views:AgregarEditarPacienteView}"
+                Route="AgregarEditarPaciente" />
+        </Tab>
     </FlyoutItem>
     <MenuItem Text="Cerrar sesión"
               Command="{Binding LogoutCommand}"/>

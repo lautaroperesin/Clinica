@@ -20,15 +20,14 @@ namespace ClinicaServices.Services
         {
             this.client = new HttpClient();
             this.options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-            //var remoto = Properties.Resources.Remoto;
-            //string urlApi = Properties.Resources.UrlApi;
-            //if (remoto == "false")
-            //{
-            //    urlApi = Properties.Resources.UrlApiLocal;
-            //}
+            var remoto = Properties.Resources.Remoto;
+            string urlApi = Properties.Resources.UrlApi;
+            if (remoto == "false")
+            {
+                urlApi = Properties.Resources.UrlApiLocal; 
+            }
 
-            //this._endpoint = urlApi + ApiEndpoints.GetEndpoint(typeof(T).Name);
-
+            this._endpoint = urlApi + ApiEndpoints.GetEndpoint(typeof(T).Name);
         }
 
         public async Task<List<T>?> GetAllAsync()
@@ -57,11 +56,20 @@ namespace ClinicaServices.Services
         {
             var response = await client.PostAsJsonAsync(_endpoint, entity);
             var content = await response.Content.ReadAsStreamAsync();
+
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException(content?.ToString());
+                throw new ApplicationException($"Error: {response.StatusCode}, Detalle: {content}");
             }
-            return JsonSerializer.Deserialize<T>(content, options);
+
+            try
+            {
+                return JsonSerializer.Deserialize<T>(content, options);
+            }
+            catch (JsonException ex)
+            {
+                throw new ApplicationException($"Error al deserializar la respuesta: {content}", ex);
+            }
         }
 
         public async Task UpdateAsync(T? entity)
