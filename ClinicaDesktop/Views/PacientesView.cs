@@ -132,7 +132,7 @@ namespace ClinicaDesktop.Views
             {
                 await pacienteService.UpdateAsync(pacienteActual);
                 MessageBox.Show("Paciente actualizado con éxito.");
-                await CargarGrilla();
+                await ActualizarLista();
             }
             catch (Exception ex)
             {
@@ -156,7 +156,8 @@ namespace ClinicaDesktop.Views
                     await pacienteService.DeleteAsync(pacienteActual.Id);
                     MessageBox.Show("Paciente eliminado con éxito.");
                     pacienteActual = null;
-                    await CargarGrilla();
+                    //await CargarGrilla();
+                    await ActualizarLista();
                 }
                 catch (Exception ex)
                 {
@@ -199,7 +200,8 @@ namespace ClinicaDesktop.Views
         {
             AgregarPacienteView agregarPacienteView = new AgregarPacienteView();
             agregarPacienteView.ShowDialog();
-            await CargarGrilla();
+            //await CargarGrilla();
+            await ActualizarLista();
         }
 
         private void AjustarGrilla()

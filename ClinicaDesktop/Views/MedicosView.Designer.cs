@@ -37,18 +37,19 @@
             dataGridMedicos = new DataGridView();
             label1 = new Label();
             panel1 = new Panel();
+            label9 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            cboTecnica = new ComboBox();
+            txtTelefono = new TextBox();
+            txtApellido = new TextBox();
+            label2 = new Label();
+            txtNombre = new TextBox();
+            btnGuardar = new Button();
             btnVolver = new Button();
             btnEliminar = new Button();
             btnAgregar = new Button();
-            btnGuardar = new Button();
-            txtNombre = new TextBox();
-            label2 = new Label();
-            txtApellido = new TextBox();
-            txtTelefono = new TextBox();
-            cboTecnica = new ComboBox();
-            label3 = new Label();
-            label5 = new Label();
-            label9 = new Label();
+            lblNoResultados = new Label();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridMedicos).BeginInit();
             panel1.SuspendLayout();
@@ -139,6 +140,102 @@
             panel1.Size = new Size(308, 577);
             panel1.TabIndex = 12;
             // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(24, 217);
+            label9.Name = "label9";
+            label9.Size = new Size(59, 21);
+            label9.TabIndex = 41;
+            label9.Text = "Técnica";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(15, 183);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 21);
+            label5.TabIndex = 38;
+            label5.Text = "Teléfono";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(16, 151);
+            label3.Name = "label3";
+            label3.Size = new Size(67, 21);
+            label3.TabIndex = 36;
+            label3.Text = "Apellido";
+            // 
+            // cboTecnica
+            // 
+            cboTecnica.Anchor = AnchorStyles.None;
+            cboTecnica.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboTecnica.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboTecnica.Font = new Font("Segoe UI", 11F);
+            cboTecnica.FormattingEnabled = true;
+            cboTecnica.Location = new Point(93, 210);
+            cboTecnica.Name = "cboTecnica";
+            cboTecnica.Size = new Size(184, 28);
+            cboTecnica.TabIndex = 3;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Anchor = AnchorStyles.None;
+            txtTelefono.Font = new Font("Segoe UI", 11F);
+            txtTelefono.Location = new Point(93, 177);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(184, 27);
+            txtTelefono.TabIndex = 2;
+            // 
+            // txtApellido
+            // 
+            txtApellido.Anchor = AnchorStyles.None;
+            txtApellido.Font = new Font("Segoe UI", 11F);
+            txtApellido.Location = new Point(93, 144);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(184, 27);
+            txtApellido.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(15, 116);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 21);
+            label2.TabIndex = 28;
+            label2.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Anchor = AnchorStyles.None;
+            txtNombre.Font = new Font("Segoe UI", 11F);
+            txtNombre.Location = new Point(93, 110);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(184, 27);
+            txtNombre.TabIndex = 0;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.None;
+            btnGuardar.BackColor = Color.LightBlue;
+            btnGuardar.Font = new Font("Segoe UI", 12F);
+            btnGuardar.Location = new Point(93, 256);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(184, 35);
+            btnGuardar.TabIndex = 4;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
             // btnVolver
             // 
             btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -178,99 +275,18 @@
             btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // btnGuardar
+            // lblNoResultados
             // 
-            btnGuardar.Anchor = AnchorStyles.None;
-            btnGuardar.BackColor = Color.LightBlue;
-            btnGuardar.Font = new Font("Segoe UI", 12F);
-            btnGuardar.Location = new Point(93, 256);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(184, 35);
-            btnGuardar.TabIndex = 26;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Anchor = AnchorStyles.None;
-            txtNombre.Font = new Font("Segoe UI", 11F);
-            txtNombre.Location = new Point(93, 110);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(184, 27);
-            txtNombre.TabIndex = 27;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(15, 116);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 21);
-            label2.TabIndex = 28;
-            label2.Text = "Nombre";
-            // 
-            // txtApellido
-            // 
-            txtApellido.Anchor = AnchorStyles.None;
-            txtApellido.Font = new Font("Segoe UI", 11F);
-            txtApellido.Location = new Point(93, 144);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(184, 27);
-            txtApellido.TabIndex = 29;
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Anchor = AnchorStyles.None;
-            txtTelefono.Font = new Font("Segoe UI", 11F);
-            txtTelefono.Location = new Point(93, 177);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(184, 27);
-            txtTelefono.TabIndex = 31;
-            // 
-            // cboTecnica
-            // 
-            cboTecnica.Anchor = AnchorStyles.None;
-            cboTecnica.Font = new Font("Segoe UI", 11F);
-            cboTecnica.FormattingEnabled = true;
-            cboTecnica.Location = new Point(93, 210);
-            cboTecnica.Name = "cboTecnica";
-            cboTecnica.Size = new Size(184, 28);
-            cboTecnica.TabIndex = 34;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(16, 151);
-            label3.Name = "label3";
-            label3.Size = new Size(67, 21);
-            label3.TabIndex = 36;
-            label3.Text = "Apellido";
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.None;
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(15, 183);
-            label5.Name = "label5";
-            label5.Size = new Size(68, 21);
-            label5.TabIndex = 38;
-            label5.Text = "Teléfono";
-            // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.None;
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(24, 217);
-            label9.Name = "label9";
-            label9.Size = new Size(59, 21);
-            label9.TabIndex = 41;
-            label9.Text = "Técnica";
+            lblNoResultados.Anchor = AnchorStyles.None;
+            lblNoResultados.AutoSize = true;
+            lblNoResultados.BackColor = Color.White;
+            lblNoResultados.Font = new Font("Segoe UI", 10F);
+            lblNoResultados.Location = new Point(544, 261);
+            lblNoResultados.Name = "lblNoResultados";
+            lblNoResultados.Size = new Size(190, 19);
+            lblNoResultados.TabIndex = 23;
+            lblNoResultados.Text = "No se encontraron resultados";
+            lblNoResultados.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MedicosView
             // 
@@ -278,6 +294,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(936, 580);
+            Controls.Add(lblNoResultados);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(txtBuscar);
@@ -315,5 +332,6 @@
         private Label label2;
         private TextBox txtNombre;
         private Button btnGuardar;
+        private Label lblNoResultados;
     }
 }

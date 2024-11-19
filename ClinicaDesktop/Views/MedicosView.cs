@@ -154,11 +154,13 @@ namespace ClinicaDesktop.Views
             {
                 btnEliminar.Enabled = false;
                 btnGuardar.Enabled = false;
+                lblNoResultados.Visible = true;
             }
             else
             {
                 btnEliminar.Enabled = true;
                 btnGuardar.Enabled = true;
+                lblNoResultados.Visible = false;
             }
         }
 

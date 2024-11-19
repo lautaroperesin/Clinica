@@ -16,9 +16,9 @@ namespace ClinicaServices.Models
         [Required(ErrorMessage = "El nombre de la practica es obligatorio")]
         [MaxLength(100, ErrorMessage = "El nombre debe tener menos de 100 caracteres")]
         public string Nombre { get; set; } = string.Empty;
+        public TecnicaEnum? Tecnica { get; set; } = null;
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "decimal(18, 2)")]
-        public TecnicaEnum? Tecnica { get; set; } = null;
         public decimal? Precio { get; set; } = decimal.Zero;
         public bool Eliminado { get; set; } = false;
 

@@ -133,7 +133,7 @@
             txtNombre.Location = new Point(78, 109);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(174, 27);
-            txtNombre.TabIndex = 11;
+            txtNombre.TabIndex = 0;
             // 
             // btnGuardar
             // 
@@ -143,7 +143,7 @@
             btnGuardar.Location = new Point(79, 147);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(174, 35);
-            btnGuardar.TabIndex = 13;
+            btnGuardar.TabIndex = 0;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -208,7 +208,7 @@
             lblNoResultados.AutoSize = true;
             lblNoResultados.BackColor = Color.White;
             lblNoResultados.Font = new Font("Segoe UI", 10F);
-            lblNoResultados.Location = new Point(444, 117);
+            lblNoResultados.Location = new Point(444, 205);
             lblNoResultados.Name = "lblNoResultados";
             lblNoResultados.Size = new Size(190, 19);
             lblNoResultados.TabIndex = 18;
@@ -236,7 +236,7 @@
             txtNombreNuevLoc.Location = new Point(91, 83);
             txtNombreNuevLoc.Name = "txtNombreNuevLoc";
             txtNombreNuevLoc.Size = new Size(174, 27);
-            txtNombreNuevLoc.TabIndex = 20;
+            txtNombreNuevLoc.TabIndex = 0;
             // 
             // label3
             // 
@@ -270,7 +270,7 @@
             btnGuardarLocalidad.Location = new Point(33, 166);
             btnGuardarLocalidad.Name = "btnGuardarLocalidad";
             btnGuardarLocalidad.Size = new Size(108, 35);
-            btnGuardarLocalidad.TabIndex = 14;
+            btnGuardarLocalidad.TabIndex = 1;
             btnGuardarLocalidad.Text = "Guardar";
             btnGuardarLocalidad.UseVisualStyleBackColor = false;
             btnGuardarLocalidad.Click += btnGuardarLocalidad_Click;

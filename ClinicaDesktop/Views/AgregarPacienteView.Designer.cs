@@ -128,22 +128,26 @@
             // cboLocalidades
             // 
             cboLocalidades.Anchor = AnchorStyles.None;
+            cboLocalidades.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboLocalidades.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboLocalidades.Font = new Font("Segoe UI", 11F);
             cboLocalidades.FormattingEnabled = true;
             cboLocalidades.Location = new Point(203, 208);
             cboLocalidades.Name = "cboLocalidades";
             cboLocalidades.Size = new Size(174, 28);
-            cboLocalidades.TabIndex = 32;
+            cboLocalidades.TabIndex = 4;
             // 
             // cboMutuales
             // 
             cboMutuales.Anchor = AnchorStyles.None;
+            cboMutuales.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboMutuales.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboMutuales.Font = new Font("Segoe UI", 11F);
             cboMutuales.FormattingEnabled = true;
             cboMutuales.Location = new Point(203, 311);
             cboMutuales.Name = "cboMutuales";
             cboMutuales.Size = new Size(174, 28);
-            cboMutuales.TabIndex = 31;
+            cboMutuales.TabIndex = 7;
             // 
             // dtpFechaNacimiento
             // 
@@ -153,7 +157,7 @@
             dtpFechaNacimiento.Location = new Point(203, 278);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(174, 27);
-            dtpFechaNacimiento.TabIndex = 30;
+            dtpFechaNacimiento.TabIndex = 6;
             // 
             // txtDireccion
             // 
@@ -162,7 +166,7 @@
             txtDireccion.Location = new Point(203, 242);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(174, 27);
-            txtDireccion.TabIndex = 29;
+            txtDireccion.TabIndex = 5;
             // 
             // txtTelefono
             // 
@@ -171,7 +175,7 @@
             txtTelefono.Location = new Point(203, 175);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(174, 27);
-            txtTelefono.TabIndex = 28;
+            txtTelefono.TabIndex = 3;
             // 
             // txtDni
             // 
@@ -180,7 +184,7 @@
             txtDni.Location = new Point(203, 142);
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(174, 27);
-            txtDni.TabIndex = 27;
+            txtDni.TabIndex = 2;
             // 
             // txtApellido
             // 
@@ -189,7 +193,7 @@
             txtApellido.Location = new Point(203, 108);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(174, 27);
-            txtApellido.TabIndex = 26;
+            txtApellido.TabIndex = 1;
             // 
             // label2
             // 
@@ -209,7 +213,7 @@
             txtNombre.Location = new Point(203, 74);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(174, 27);
-            txtNombre.TabIndex = 24;
+            txtNombre.TabIndex = 0;
             // 
             // btnGuardar
             // 
@@ -219,7 +223,7 @@
             btnGuardar.Location = new Point(134, 368);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(119, 35);
-            btnGuardar.TabIndex = 23;
+            btnGuardar.TabIndex = 8;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;

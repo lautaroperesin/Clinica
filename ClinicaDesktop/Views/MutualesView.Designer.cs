@@ -116,7 +116,7 @@
             txtNombre.Location = new Point(108, 126);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(174, 29);
-            txtNombre.TabIndex = 26;
+            txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -137,7 +137,7 @@
             btnGuardar.Location = new Point(108, 169);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(174, 35);
-            btnGuardar.TabIndex = 25;
+            btnGuardar.TabIndex = 1;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -208,7 +208,7 @@
             lblNoResultados.AutoSize = true;
             lblNoResultados.BackColor = Color.White;
             lblNoResultados.Font = new Font("Segoe UI", 10F);
-            lblNoResultados.Location = new Point(503, 138);
+            lblNoResultados.Location = new Point(503, 220);
             lblNoResultados.Name = "lblNoResultados";
             lblNoResultados.Size = new Size(190, 19);
             lblNoResultados.TabIndex = 25;
@@ -230,7 +230,7 @@
             panelAgregar.Location = new Point(264, 86);
             panelAgregar.Name = "panelAgregar";
             panelAgregar.Size = new Size(297, 280);
-            panelAgregar.TabIndex = 26;
+            panelAgregar.TabIndex = 0;
             panelAgregar.Visible = false;
             // 
             // txtNombreNuevaMut
@@ -240,7 +240,7 @@
             txtNombreNuevaMut.Location = new Point(98, 102);
             txtNombreNuevaMut.Name = "txtNombreNuevaMut";
             txtNombreNuevaMut.Size = new Size(174, 27);
-            txtNombreNuevaMut.TabIndex = 20;
+            txtNombreNuevaMut.TabIndex = 0;
             // 
             // label3
             // 
@@ -274,7 +274,7 @@
             btnGuardarNuevaMut.Location = new Point(40, 184);
             btnGuardarNuevaMut.Name = "btnGuardarNuevaMut";
             btnGuardarNuevaMut.Size = new Size(108, 35);
-            btnGuardarNuevaMut.TabIndex = 14;
+            btnGuardarNuevaMut.TabIndex = 1;
             btnGuardarNuevaMut.Text = "Guardar";
             btnGuardarNuevaMut.UseVisualStyleBackColor = false;
             btnGuardarNuevaMut.Click += btnGuardarNuevaMut_Click;

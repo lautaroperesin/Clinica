@@ -79,12 +79,14 @@
             // cboTecnica
             // 
             cboTecnica.Anchor = AnchorStyles.None;
+            cboTecnica.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboTecnica.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboTecnica.Font = new Font("Segoe UI", 11F);
             cboTecnica.FormattingEnabled = true;
             cboTecnica.Location = new Point(125, 222);
             cboTecnica.Name = "cboTecnica";
             cboTecnica.Size = new Size(184, 28);
-            cboTecnica.TabIndex = 47;
+            cboTecnica.TabIndex = 3;
             // 
             // txtTelefono
             // 
@@ -93,7 +95,7 @@
             txtTelefono.Location = new Point(125, 189);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(184, 27);
-            txtTelefono.TabIndex = 46;
+            txtTelefono.TabIndex = 2;
             // 
             // txtApellido
             // 
@@ -102,7 +104,7 @@
             txtApellido.Location = new Point(125, 156);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(184, 27);
-            txtApellido.TabIndex = 45;
+            txtApellido.TabIndex = 1;
             // 
             // label2
             // 
@@ -122,7 +124,7 @@
             txtNombre.Location = new Point(125, 122);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(184, 27);
-            txtNombre.TabIndex = 43;
+            txtNombre.TabIndex = 0;
             // 
             // btnGuardar
             // 
@@ -132,7 +134,7 @@
             btnGuardar.Location = new Point(75, 280);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(114, 34);
-            btnGuardar.TabIndex = 42;
+            btnGuardar.TabIndex = 4;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;

@@ -24,7 +24,7 @@ namespace ClinicaDesktop.Views
         {
             InitializeComponent();
             dataGridPracticas.DataSource = bsPracticas;
-            cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
+            CargarCombos();
             CargarGrilla();
         }
 
@@ -148,6 +148,15 @@ namespace ClinicaDesktop.Views
                 btnGuardar.Enabled = true;
                 lblNoResultados.Visible = false;
             }
+        }
+
+        private void CargarCombos()
+        {
+            cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
+            cboTecnicas.SelectedIndex = -1;
+
+            cboNuevaTecnica.DataSource = Enum.GetValues(typeof(TecnicaEnum));
+            cboNuevaTecnica.SelectedIndex = -1;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

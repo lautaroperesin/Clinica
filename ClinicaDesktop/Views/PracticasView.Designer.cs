@@ -87,7 +87,7 @@
             txtPrecio.Location = new Point(94, 149);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(174, 29);
-            txtPrecio.TabIndex = 23;
+            txtPrecio.TabIndex = 2;
             // 
             // label3
             // 
@@ -102,12 +102,14 @@
             // 
             // cboTecnicas
             // 
+            cboTecnicas.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboTecnicas.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboTecnicas.Font = new Font("Segoe UI", 12F);
             cboTecnicas.FormattingEnabled = true;
             cboTecnicas.Location = new Point(94, 101);
             cboTecnicas.Name = "cboTecnicas";
             cboTecnicas.Size = new Size(174, 29);
-            cboTecnicas.TabIndex = 21;
+            cboTecnicas.TabIndex = 1;
             // 
             // label1
             // 
@@ -165,7 +167,7 @@
             txtNombre.Location = new Point(94, 61);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(174, 29);
-            txtNombre.TabIndex = 16;
+            txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -186,7 +188,7 @@
             btnGuardar.Location = new Point(94, 188);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(174, 35);
-            btnGuardar.TabIndex = 15;
+            btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -261,7 +263,7 @@
             lblNoResultados.AutoSize = true;
             lblNoResultados.BackColor = Color.White;
             lblNoResultados.Font = new Font("Segoe UI", 10F);
-            lblNoResultados.Location = new Point(470, 150);
+            lblNoResultados.Location = new Point(486, 198);
             lblNoResultados.Name = "lblNoResultados";
             lblNoResultados.Size = new Size(190, 19);
             lblNoResultados.TabIndex = 22;
@@ -293,7 +295,7 @@
             txtNuevoPrecio.Location = new Point(88, 111);
             txtNuevoPrecio.Name = "txtNuevoPrecio";
             txtNuevoPrecio.Size = new Size(174, 27);
-            txtNuevoPrecio.TabIndex = 26;
+            txtNuevoPrecio.TabIndex = 2;
             // 
             // label8
             // 
@@ -308,12 +310,14 @@
             // 
             // cboNuevaTecnica
             // 
+            cboNuevaTecnica.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboNuevaTecnica.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboNuevaTecnica.Font = new Font("Segoe UI", 12F);
             cboNuevaTecnica.FormattingEnabled = true;
             cboNuevaTecnica.Location = new Point(88, 63);
             cboNuevaTecnica.Name = "cboNuevaTecnica";
             cboNuevaTecnica.Size = new Size(174, 29);
-            cboNuevaTecnica.TabIndex = 23;
+            cboNuevaTecnica.TabIndex = 1;
             // 
             // label7
             // 
@@ -333,7 +337,7 @@
             txtNombreNuevaPrac.Location = new Point(88, 23);
             txtNombreNuevaPrac.Name = "txtNombreNuevaPrac";
             txtNombreNuevaPrac.Size = new Size(174, 27);
-            txtNombreNuevaPrac.TabIndex = 20;
+            txtNombreNuevaPrac.TabIndex = 0;
             // 
             // label5
             // 
@@ -367,7 +371,7 @@
             btnNuevaPractica.Location = new Point(46, 185);
             btnNuevaPractica.Name = "btnNuevaPractica";
             btnNuevaPractica.Size = new Size(108, 35);
-            btnNuevaPractica.TabIndex = 14;
+            btnNuevaPractica.TabIndex = 3;
             btnNuevaPractica.Text = "Guardar";
             btnNuevaPractica.UseVisualStyleBackColor = false;
             btnNuevaPractica.Click += btnNuevaPractica_Click;
