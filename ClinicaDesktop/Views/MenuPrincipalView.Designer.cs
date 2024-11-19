@@ -33,6 +33,9 @@
             iconMenuPacientes = new FontAwesome.Sharp.IconMenuItem();
             iconMenuMedicos = new FontAwesome.Sharp.IconMenuItem();
             iconMenuTurnos = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuMutuales = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuLocalidades = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuPracticas = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,7 +43,7 @@
             // 
             menuStrip1.BackColor = Color.LightBlue;
             menuStrip1.Font = new Font("Segoe UI", 12F);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuPacientes, iconMenuMedicos, iconMenuTurnos });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuPacientes, iconMenuMedicos, iconMenuTurnos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 33);
@@ -93,6 +96,43 @@
             iconMenuTurnos.Name = "iconMenuTurnos";
             iconMenuTurnos.Size = new Size(95, 29);
             iconMenuTurnos.Text = "Turnos";
+            iconMenuTurnos.Click += iconMenuTurnos_Click;
+            // 
+            // iconMenuMutuales
+            // 
+            iconMenuMutuales.IconChar = FontAwesome.Sharp.IconChar.HandHoldingHeart;
+            iconMenuMutuales.IconColor = Color.Black;
+            iconMenuMutuales.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuMutuales.IconSize = 25;
+            iconMenuMutuales.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuMutuales.Name = "iconMenuMutuales";
+            iconMenuMutuales.Size = new Size(111, 29);
+            iconMenuMutuales.Text = "Mutuales";
+            iconMenuMutuales.Click += iconMenuMutuales_Click;
+            // 
+            // iconMenuLocalidades
+            // 
+            iconMenuLocalidades.IconChar = FontAwesome.Sharp.IconChar.LocationPin;
+            iconMenuLocalidades.IconColor = Color.Black;
+            iconMenuLocalidades.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuLocalidades.IconSize = 25;
+            iconMenuLocalidades.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuLocalidades.Name = "iconMenuLocalidades";
+            iconMenuLocalidades.Size = new Size(128, 29);
+            iconMenuLocalidades.Text = "Localidades";
+            iconMenuLocalidades.Click += iconMenuLocalidades_Click;
+            // 
+            // iconMenuPracticas
+            // 
+            iconMenuPracticas.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
+            iconMenuPracticas.IconColor = Color.Black;
+            iconMenuPracticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuPracticas.IconSize = 25;
+            iconMenuPracticas.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuPracticas.Name = "iconMenuPracticas";
+            iconMenuPracticas.Size = new Size(108, 29);
+            iconMenuPracticas.Text = "Prácticas";
+            iconMenuPracticas.Click += iconMenuPracticas_Click;
             // 
             // MenuPrincipalView
             // 
@@ -120,5 +160,8 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuPacientes;
         private FontAwesome.Sharp.IconMenuItem iconMenuMedicos;
         private FontAwesome.Sharp.IconMenuItem iconMenuTurnos;
+        private FontAwesome.Sharp.IconMenuItem iconMenuMutuales;
+        private FontAwesome.Sharp.IconMenuItem iconMenuLocalidades;
+        private FontAwesome.Sharp.IconMenuItem iconMenuPracticas;
     }
 }

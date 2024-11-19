@@ -20,5 +20,29 @@ namespace ClinicaDesktop
             MedicosView medicosView = new MedicosView();
             medicosView.ShowDialog();
         }
+
+        private void iconMenuTurnos_Click(object sender, EventArgs e)
+        {
+            TurnosView turnosView = new TurnosView();
+            turnosView.ShowDialog();
+        }
+
+        private void iconMenuMutuales_Click(object sender, EventArgs e)
+        {
+            MutualesView mutualesView = new MutualesView();
+            mutualesView.ShowDialog();
+        }
+
+        private void iconMenuLocalidades_Click(object sender, EventArgs e)
+        {
+            LocalidadesView localidadesView = new LocalidadesView();
+            localidadesView.ShowDialog();
+        }
+
+        private void iconMenuPracticas_Click(object sender, EventArgs e)
+        {
+            PracticasView practicasView = new PracticasView();
+            practicasView.ShowDialog();
+        }
     }
 }

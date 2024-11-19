@@ -223,13 +223,11 @@ namespace ClinicaDesktop.Views
             {
                 btnEliminar.Enabled = false;
                 btnGuardar.Enabled = false;
-                btnAgregar.Enabled = false;
             }
             else
             {
                 btnEliminar.Enabled = true;
                 btnGuardar.Enabled = true;
-                btnAgregar.Enabled = true;
             }
         }
 

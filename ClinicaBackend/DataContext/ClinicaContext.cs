@@ -179,7 +179,6 @@ namespace ClinicaBackend.DataContext
                 new Medico
                 {
                     Id = 1,
-                    Matricula = "1234",
                     Nombre = "Juan",
                     Apellido = "Perez",
                     Telefono = "3498123465",
@@ -188,7 +187,6 @@ namespace ClinicaBackend.DataContext
                 new Medico
                 {
                     Id = 2,
-                    Matricula = "5678",
                     Nombre = "Maria",
                     Apellido = "Gomez",
                     Telefono = "3498456754",
@@ -197,7 +195,6 @@ namespace ClinicaBackend.DataContext
                 new Medico
                 {
                     Id = 3,
-                    Matricula = "9876",
                     Nombre = "Carlos",
                     Apellido = "Gonzalez",
                     Telefono = "3498564532",

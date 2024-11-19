@@ -13,7 +13,6 @@ namespace ClinicaServices.Models
     {
         [Key]
         public int Id { get; set; }
-        public string? Matricula { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El nombre es obligatorio")]
         [MaxLength(100, ErrorMessage = "El nombre debe tener menos de 100 caracteres")]
