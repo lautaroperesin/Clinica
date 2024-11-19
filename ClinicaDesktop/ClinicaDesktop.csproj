@@ -12,6 +12,7 @@
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.25" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +20,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Reports\" />
+    <Folder Include="Paquetes\" />
     <Folder Include="ViewReports\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSet\ClinicaDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClinicaDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSet\ClinicaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClinicaDataSet.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
