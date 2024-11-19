@@ -57,6 +57,7 @@
             txtBuscar = new TextBox();
             errorProvider = new ErrorProvider(components);
             label6 = new Label();
+            lblNoResultados = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridPacientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
@@ -370,12 +371,26 @@
             label6.TabIndex = 7;
             label6.Text = "Buscar";
             // 
+            // lblNoResultados
+            // 
+            lblNoResultados.Anchor = AnchorStyles.None;
+            lblNoResultados.AutoSize = true;
+            lblNoResultados.BackColor = Color.White;
+            lblNoResultados.Font = new Font("Segoe UI", 10F);
+            lblNoResultados.Location = new Point(569, 140);
+            lblNoResultados.Name = "lblNoResultados";
+            lblNoResultados.Size = new Size(190, 19);
+            lblNoResultados.TabIndex = 19;
+            lblNoResultados.Text = "No se encontraron resultados";
+            lblNoResultados.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PacientesView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(983, 541);
+            Controls.Add(lblNoResultados);
             Controls.Add(label6);
             Controls.Add(txtBuscar);
             Controls.Add(dataGridPacientes);
@@ -421,5 +436,6 @@
         public TextBox txtDireccion;
         private ErrorProvider errorProvider;
         private Label label6;
+        private Label lblNoResultados;
     }
 }

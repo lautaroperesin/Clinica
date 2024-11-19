@@ -57,7 +57,7 @@ namespace ClinicaDesktop.Views
         {
             try
             {
-                bsPacientes.DataSource = await pacienteService.GetAllAsync();
+                bsPacientes.DataSource = listaPacientes;
 
                 AjustarGrilla();
                 VerificarElementosEnDataGrid();
@@ -84,8 +84,8 @@ namespace ClinicaDesktop.Views
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Text.ToUpper();
-            var pacientesFiltrados = listaPacientes.Where(p => p.NombreCompleto.ToUpper().Contains(filtro.ToUpper()) ||
-                                                                    p.Documento.ToUpper().Contains(filtro.ToUpper()))
+            var pacientesFiltrados = listaPacientes.Where(p => p.NombreCompleto.ToUpper().Contains(filtro) ||
+                                                                    p.Documento.ToUpper().Contains(filtro))
                                                         .ToList();
             bsPacientes.DataSource = pacientesFiltrados;
 
@@ -223,12 +223,20 @@ namespace ClinicaDesktop.Views
             {
                 btnEliminar.Enabled = false;
                 btnGuardar.Enabled = false;
+                lblNoResultados.Visible = true;
             }
             else
             {
                 btnEliminar.Enabled = true;
                 btnGuardar.Enabled = true;
+                lblNoResultados.Visible = false;
             }
+        }
+
+        private async Task ActualizarLista()
+        {
+            listaPacientes = await pacienteService.GetAllAsync();
+            await CargarGrilla();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
