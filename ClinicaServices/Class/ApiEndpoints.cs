@@ -12,7 +12,7 @@ namespace ClinicaServices.Class
         public static string Mutual { get; set; } = "Mutuales";
         public static string Paciente { get; set; } = "Pacientes";
         public static string Practica { get; set; } = "Practicas";
-        public static string Turno { get; set; } = "Turno";
+        public static string Turno { get; set; } = "Turnos";
         public static string Localidad { get; set; } = "Localidades";
 
 

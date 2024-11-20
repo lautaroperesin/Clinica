@@ -33,9 +33,10 @@
             iconMenuPacientes = new FontAwesome.Sharp.IconMenuItem();
             iconMenuMedicos = new FontAwesome.Sharp.IconMenuItem();
             iconMenuTurnos = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuPracticas = new FontAwesome.Sharp.IconMenuItem();
             iconMenuMutuales = new FontAwesome.Sharp.IconMenuItem();
             iconMenuLocalidades = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuPracticas = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuCaja = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,10 +44,10 @@
             // 
             menuStrip1.BackColor = Color.LightBlue;
             menuStrip1.Font = new Font("Segoe UI", 12F);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuPacientes, iconMenuMedicos, iconMenuTurnos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuPacientes, iconMenuMedicos, iconMenuTurnos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuCaja });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 33);
+            menuStrip1.Size = new Size(920, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -61,6 +62,7 @@
             iconMenuPrincipal.Name = "iconMenuPrincipal";
             iconMenuPrincipal.Size = new Size(97, 29);
             iconMenuPrincipal.Text = "Principal";
+            iconMenuPrincipal.Click += iconMenuPrincipal_Click;
             // 
             // iconMenuPacientes
             // 
@@ -98,6 +100,18 @@
             iconMenuTurnos.Text = "Turnos";
             iconMenuTurnos.Click += iconMenuTurnos_Click;
             // 
+            // iconMenuPracticas
+            // 
+            iconMenuPracticas.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
+            iconMenuPracticas.IconColor = Color.Black;
+            iconMenuPracticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuPracticas.IconSize = 25;
+            iconMenuPracticas.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuPracticas.Name = "iconMenuPracticas";
+            iconMenuPracticas.Size = new Size(108, 29);
+            iconMenuPracticas.Text = "Prácticas";
+            iconMenuPracticas.Click += iconMenuPracticas_Click;
+            // 
             // iconMenuMutuales
             // 
             iconMenuMutuales.IconChar = FontAwesome.Sharp.IconChar.HandHoldingHeart;
@@ -122,24 +136,24 @@
             iconMenuLocalidades.Text = "Localidades";
             iconMenuLocalidades.Click += iconMenuLocalidades_Click;
             // 
-            // iconMenuPracticas
+            // iconMenuCaja
             // 
-            iconMenuPracticas.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
-            iconMenuPracticas.IconColor = Color.Black;
-            iconMenuPracticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuPracticas.IconSize = 25;
-            iconMenuPracticas.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuPracticas.Name = "iconMenuPracticas";
-            iconMenuPracticas.Size = new Size(108, 29);
-            iconMenuPracticas.Text = "Prácticas";
-            iconMenuPracticas.Click += iconMenuPracticas_Click;
+            iconMenuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            iconMenuCaja.IconColor = Color.Black;
+            iconMenuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuCaja.IconSize = 25;
+            iconMenuCaja.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuCaja.Name = "iconMenuCaja";
+            iconMenuCaja.Size = new Size(77, 29);
+            iconMenuCaja.Text = "Caja";
+            iconMenuCaja.Click += iconMenuCaja_Click;
             // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(920, 450);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
@@ -163,5 +177,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuMutuales;
         private FontAwesome.Sharp.IconMenuItem iconMenuLocalidades;
         private FontAwesome.Sharp.IconMenuItem iconMenuPracticas;
+        private FontAwesome.Sharp.IconMenuItem iconMenuCaja;
     }
 }

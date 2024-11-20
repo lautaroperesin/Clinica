@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cboMedicos = new ComboBox();
             label1 = new Label();
             dtpFechaTurno = new DateTimePicker();
@@ -37,13 +38,27 @@
             lblNoTurnos = new Label();
             dataGridTurnos = new DataGridView();
             panel1 = new Panel();
+            btnVolver = new Button();
+            label3 = new Label();
             btnAtender = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnAgregar = new Button();
-            label3 = new Label();
+            lblSelecMedico = new Label();
+            panelAtenderTurno = new Panel();
+            label6 = new Label();
+            cboFormaPago = new ComboBox();
+            txtCoseguro = new TextBox();
+            label5 = new Label();
+            txtPacienteAtendido = new TextBox();
+            label4 = new Label();
+            btnCancelar = new Button();
+            btnConfirmar = new Button();
+            errorProvider = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridTurnos).BeginInit();
             panel1.SuspendLayout();
+            panelAtenderTurno.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // cboMedicos
@@ -56,6 +71,7 @@
             cboMedicos.Name = "cboMedicos";
             cboMedicos.Size = new Size(219, 29);
             cboMedicos.TabIndex = 1;
+            cboMedicos.SelectedIndexChanged += cboMedicos_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -74,6 +90,7 @@
             dtpFechaTurno.Name = "dtpFechaTurno";
             dtpFechaTurno.Size = new Size(170, 29);
             dtpFechaTurno.TabIndex = 3;
+            dtpFechaTurno.ValueChanged += dtpFechaTurno_ValueChanged;
             // 
             // label2
             // 
@@ -95,24 +112,25 @@
             lblNoTurnos.Size = new Size(255, 21);
             lblNoTurnos.TabIndex = 28;
             lblNoTurnos.Text = "NO HAY TURNOS PROGRAMADOS";
+            lblNoTurnos.Visible = false;
             // 
             // dataGridTurnos
             // 
             dataGridTurnos.AllowUserToAddRows = false;
             dataGridTurnos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = Color.Silver;
-            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.Silver;
+            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridTurnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridTurnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridTurnos.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTurnos.Location = new Point(206, 112);
             dataGridTurnos.MultiSelect = false;
@@ -127,6 +145,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnVolver);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(btnAtender);
             panel1.Controls.Add(btnEliminar);
@@ -137,53 +156,18 @@
             panel1.Size = new Size(210, 570);
             panel1.TabIndex = 30;
             // 
-            // btnAtender
+            // btnVolver
             // 
-            btnAtender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAtender.BackColor = Color.LightBlue;
-            btnAtender.Font = new Font("Segoe UI", 12F);
-            btnAtender.Location = new Point(3, 305);
-            btnAtender.Name = "btnAtender";
-            btnAtender.Size = new Size(197, 33);
-            btnAtender.TabIndex = 31;
-            btnAtender.Text = "Atender";
-            btnAtender.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.BackColor = Color.LightBlue;
-            btnEliminar.Font = new Font("Segoe UI", 12F);
-            btnEliminar.Location = new Point(3, 428);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(197, 35);
-            btnEliminar.TabIndex = 30;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditar.BackColor = Color.LightBlue;
-            btnEditar.Font = new Font("Segoe UI", 12F);
-            btnEditar.Location = new Point(3, 387);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(197, 35);
-            btnEditar.TabIndex = 29;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.BackColor = Color.LightBlue;
-            btnAgregar.Font = new Font("Segoe UI", 12F);
-            btnAgregar.Location = new Point(3, 346);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(197, 35);
-            btnAgregar.TabIndex = 28;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = false;
+            btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnVolver.BackColor = Color.LightBlue;
+            btnVolver.Font = new Font("Segoe UI", 12F);
+            btnVolver.Location = new Point(3, 469);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(197, 35);
+            btnVolver.TabIndex = 33;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
             // 
             // label3
             // 
@@ -196,12 +180,186 @@
             label3.TabIndex = 32;
             label3.Text = "TURNOS";
             // 
+            // btnAtender
+            // 
+            btnAtender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAtender.BackColor = Color.LightBlue;
+            btnAtender.Enabled = false;
+            btnAtender.Font = new Font("Segoe UI", 12F);
+            btnAtender.Location = new Point(3, 305);
+            btnAtender.Name = "btnAtender";
+            btnAtender.Size = new Size(197, 33);
+            btnAtender.TabIndex = 31;
+            btnAtender.Text = " Atender";
+            btnAtender.UseVisualStyleBackColor = false;
+            btnAtender.Click += btnAtender_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEliminar.BackColor = Color.LightBlue;
+            btnEliminar.Enabled = false;
+            btnEliminar.Font = new Font("Segoe UI", 12F);
+            btnEliminar.Location = new Point(3, 428);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(197, 35);
+            btnEliminar.TabIndex = 30;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditar.BackColor = Color.LightBlue;
+            btnEditar.Enabled = false;
+            btnEditar.Font = new Font("Segoe UI", 12F);
+            btnEditar.Location = new Point(3, 387);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(197, 35);
+            btnEditar.TabIndex = 29;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAgregar.BackColor = Color.LightBlue;
+            btnAgregar.Enabled = false;
+            btnAgregar.Font = new Font("Segoe UI", 12F);
+            btnAgregar.Location = new Point(3, 346);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(197, 35);
+            btnAgregar.TabIndex = 28;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // lblSelecMedico
+            // 
+            lblSelecMedico.Anchor = AnchorStyles.None;
+            lblSelecMedico.AutoSize = true;
+            lblSelecMedico.BackColor = Color.White;
+            lblSelecMedico.Font = new Font("Segoe UI", 12F);
+            lblSelecMedico.Location = new Point(603, 327);
+            lblSelecMedico.Name = "lblSelecMedico";
+            lblSelecMedico.Size = new Size(189, 21);
+            lblSelecMedico.TabIndex = 31;
+            lblSelecMedico.Text = "SELECCIONE UN MÉDICO";
+            // 
+            // panelAtenderTurno
+            // 
+            panelAtenderTurno.BorderStyle = BorderStyle.Fixed3D;
+            panelAtenderTurno.Controls.Add(label6);
+            panelAtenderTurno.Controls.Add(cboFormaPago);
+            panelAtenderTurno.Controls.Add(txtCoseguro);
+            panelAtenderTurno.Controls.Add(label5);
+            panelAtenderTurno.Controls.Add(txtPacienteAtendido);
+            panelAtenderTurno.Controls.Add(label4);
+            panelAtenderTurno.Controls.Add(btnCancelar);
+            panelAtenderTurno.Controls.Add(btnConfirmar);
+            panelAtenderTurno.Location = new Point(340, 192);
+            panelAtenderTurno.Name = "panelAtenderTurno";
+            panelAtenderTurno.Size = new Size(550, 272);
+            panelAtenderTurno.TabIndex = 32;
+            panelAtenderTurno.Visible = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.Location = new Point(31, 147);
+            label6.Name = "label6";
+            label6.Size = new Size(115, 21);
+            label6.TabIndex = 36;
+            label6.Text = "Forma de pago";
+            // 
+            // cboFormaPago
+            // 
+            cboFormaPago.Font = new Font("Segoe UI", 12F);
+            cboFormaPago.FormattingEnabled = true;
+            cboFormaPago.Location = new Point(185, 139);
+            cboFormaPago.Name = "cboFormaPago";
+            cboFormaPago.Size = new Size(284, 29);
+            cboFormaPago.TabIndex = 35;
+            // 
+            // txtCoseguro
+            // 
+            txtCoseguro.Font = new Font("Segoe UI", 12F);
+            txtCoseguro.Location = new Point(184, 81);
+            txtCoseguro.Name = "txtCoseguro";
+            txtCoseguro.Size = new Size(100, 29);
+            txtCoseguro.TabIndex = 34;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(69, 84);
+            label5.Name = "label5";
+            label5.Size = new Size(77, 21);
+            label5.TabIndex = 33;
+            label5.Text = "Coseguro";
+            // 
+            // txtPacienteAtendido
+            // 
+            txtPacienteAtendido.Enabled = false;
+            txtPacienteAtendido.Font = new Font("Segoe UI", 12F);
+            txtPacienteAtendido.Location = new Point(184, 23);
+            txtPacienteAtendido.Name = "txtPacienteAtendido";
+            txtPacienteAtendido.ReadOnly = true;
+            txtPacienteAtendido.Size = new Size(285, 29);
+            txtPacienteAtendido.TabIndex = 32;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(79, 31);
+            label4.Name = "label4";
+            label4.Size = new Size(67, 21);
+            label4.TabIndex = 31;
+            label4.Text = "Paciente";
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCancelar.BackColor = Color.LightBlue;
+            btnCancelar.Font = new Font("Segoe UI", 12F);
+            btnCancelar.Location = new Point(280, 207);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(197, 35);
+            btnCancelar.TabIndex = 30;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnConfirmar.BackColor = Color.LightBlue;
+            btnConfirmar.Font = new Font("Segoe UI", 12F);
+            btnConfirmar.Location = new Point(57, 207);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(197, 35);
+            btnConfirmar.TabIndex = 29;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
+            // 
             // TurnosView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(1191, 566);
+            Controls.Add(panelAtenderTurno);
+            Controls.Add(lblSelecMedico);
             Controls.Add(panel1);
             Controls.Add(lblNoTurnos);
             Controls.Add(label2);
@@ -212,10 +370,12 @@
             Name = "TurnosView";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Turnos";
-            Load += TurnosView_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridTurnos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panelAtenderTurno.ResumeLayout(false);
+            panelAtenderTurno.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,5 +393,17 @@
         private Button btnEditar;
         private Button btnAgregar;
         private Label label3;
+        private Button btnVolver;
+        private Label lblSelecMedico;
+        private Panel panelAtenderTurno;
+        private Button btnConfirmar;
+        private Label label6;
+        private ComboBox cboFormaPago;
+        private TextBox txtCoseguro;
+        private Label label5;
+        private TextBox txtPacienteAtendido;
+        private Label label4;
+        private Button btnCancelar;
+        private ErrorProvider errorProvider;
     }
 }

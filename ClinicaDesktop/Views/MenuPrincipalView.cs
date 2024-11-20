@@ -44,5 +44,16 @@ namespace ClinicaDesktop
             PracticasView practicasView = new PracticasView();
             practicasView.ShowDialog();
         }
+
+        private void iconMenuPrincipal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconMenuCaja_Click(object sender, EventArgs e)
+        {
+            CajaView cajaView = new CajaView();
+            cajaView.ShowDialog();
+        }
     }
 }

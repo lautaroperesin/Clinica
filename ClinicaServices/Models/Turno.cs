@@ -15,8 +15,6 @@ namespace ClinicaServices.Models
         public int Id { get; set; }
         public int? PacienteId { get; set; } = null;
         public Paciente? Paciente { get; set; }
-        public int? MedicoDerivanteId { get; set; }
-        public virtual Medico? MedicoDerivante { get; set; }
         public int? MedicoEfectorId { get; set; }
         public virtual Medico? MedicoEfector { get; set; }
         public int? PracticaId { get; set; }
@@ -24,7 +22,7 @@ namespace ClinicaServices.Models
         public TecnicaEnum? Tecnica { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime? FechaConsulta { get; set; } = DateTime.Now;
+        public DateTime? FechaTurno { get; set; } = DateTime.Now;
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal? Coseguro { get; set; }

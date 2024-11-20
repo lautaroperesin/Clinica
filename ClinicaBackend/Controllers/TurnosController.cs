@@ -25,7 +25,47 @@ namespace ClinicaBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Turno>>> GetTurnos()
         {
-            return await _context.Turnos.ToListAsync();
+            return await _context.Turnos
+                              .Include(t => t.Paciente)
+                               .ThenInclude(p => p.Mutual)
+                              .Include(t => t.MedicoEfector)
+                              .Include(t => t.Practica)
+                              .ToListAsync();
+        }
+
+        [HttpGet("turnosAtendidos")]
+        public async Task<ActionResult<IEnumerable<Turno>>> GetTurnosAtendidos()
+        {
+            return await _context.Turnos
+                .Where(t => t.Atendido)
+                .Include(t => t.Paciente)
+                    .ThenInclude(p => p.Mutual)
+                .Include(t => t.MedicoEfector)
+                .Include(t => t.Practica)
+                .ToListAsync();
+        }
+
+        [HttpGet("{medicoId}/{fecha}")]
+        public async Task<IActionResult> GetTurnosFiltrados(int medicoId, DateTime fecha)
+        {
+            if (medicoId <= 0)
+                return BadRequest("El ID del médico no es válido.");
+
+            try
+            {
+                var turnos = await _context.Turnos.Where(c => c.MedicoEfectorId == medicoId && c.FechaTurno.Value.Date == fecha.Date)
+                              .OrderBy(t => t.FechaTurno)
+                              .Include(t => t.Paciente)
+                               .ThenInclude(p => p.Mutual)
+                              .Include(t => t.MedicoEfector)
+                              .Include(t => t.Practica)
+                              .ToListAsync();
+                return Ok(turnos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno: {ex.Message}");
+            }
         }
 
         // GET: api/Turnos/5

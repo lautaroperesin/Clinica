@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ClinicaServices.Services
@@ -19,7 +20,7 @@ namespace ClinicaServices.Services
         public GenericService()
         {
             this.client = new HttpClient();
-            this.options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+            this.options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true, Converters = { new JsonStringEnumConverter() } };
             var remoto = Properties.Resources.Remoto;
             string urlApi = Properties.Resources.UrlApi;
             if (remoto == "false")
@@ -32,13 +33,22 @@ namespace ClinicaServices.Services
 
         public async Task<List<T>?> GetAllAsync()
         {
-            var response = await client.GetAsync(_endpoint);
-            var content = await response.Content.ReadAsStringAsync();
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                throw new ApplicationException(content?.ToString());
+                var response = await client.GetAsync(_endpoint);
+                var content = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new ApplicationException($"Error: {response.StatusCode}, Contenido: {content}");
+                }
+
+                return JsonSerializer.Deserialize<List<T>>(content, options);
             }
-            return JsonSerializer.Deserialize<List<T>>(content, options);
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Excepción al obtener datos: {ex.Message}");
+            }
         }
 
         public async Task<T?> GetByIdAsync(int id)
