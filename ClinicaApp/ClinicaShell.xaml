@@ -32,10 +32,10 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-        <!--<ShellContent
-            Title="Agregar paciente"
-            ContentTemplate="{DataTemplate views:PacientesView}"
-            Route="ProductosOferta" />-->
+        <ShellContent
+            Title="Nuevo turno"
+            ContentTemplate="{DataTemplate views:NuevoTurnoView}"
+            Route="NuevoTurno" />
 
         <Tab Title="Pacientes"
              Route="Pacientes">

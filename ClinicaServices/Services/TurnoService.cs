@@ -54,5 +54,16 @@ namespace ClinicaServices.Services
             }
             return JsonSerializer.Deserialize<List<Turno>>(content, options);
         }
+
+        public async Task<List<DateTime>> GetHorariosDisponibles(int? medicoId, DateTime? fecha)
+        {
+            var response = await client.GetAsync($"{_endpoint}/horariosDisponibles?medicoId={medicoId}&fecha={fecha:yyyy-MM-dd}");
+            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content?.ToString());
+            }
+            return JsonSerializer.Deserialize<List<DateTime>>(content, options);
+        }
     }
 }

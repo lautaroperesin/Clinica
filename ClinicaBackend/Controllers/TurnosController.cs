@@ -45,6 +45,39 @@ namespace ClinicaBackend.Controllers
                 .ToListAsync();
         }
 
+        // url : api/Turnos/horariosDisponibles?medicoId=1&fecha=2021-06-01
+        [HttpGet("horariosDisponibles")]
+        public async Task<IActionResult> GetHorariosDisponibles([FromQuery] int medicoId, [FromQuery] DateTime fecha)
+        {
+            try
+            {
+                DateTime horaInicio = new DateTime(fecha.Year, fecha.Month, fecha.Day, 8, 0, 0);
+                DateTime horaFin = new DateTime(fecha.Year, fecha.Month, fecha.Day, 20, 45, 0);
+
+                // Obtener los turnos agendados para el médico en esa fecha
+                var turnosAgendados = await _context.Turnos
+                                                    .Where(t => t.MedicoEfectorId == medicoId && t.FechaTurno.HasValue && t.FechaTurno.Value.Date == fecha.Date)
+                                                    .Select(t => t.FechaTurno.Value)
+                                                    .ToListAsync();
+
+                List<DateTime> horariosDisponibles = new List<DateTime>();
+
+                for (DateTime hora = horaInicio; hora < horaFin; hora = hora.AddMinutes(45))
+                {
+                    if (!turnosAgendados.Contains(hora))
+                    {
+                        horariosDisponibles.Add(hora);
+                    }
+                }
+
+                return Ok(horariosDisponibles);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
         [HttpGet("{medicoId}/{fecha}")]
         public async Task<IActionResult> GetTurnosFiltrados(int medicoId, DateTime fecha)
         {

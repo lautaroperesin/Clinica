@@ -18,14 +18,17 @@ namespace ClinicaDesktop.Views
         GenericService<Medico> medicoService = new GenericService<Medico>();
         GenericService<Paciente> pacienteService = new GenericService<Paciente>();
         GenericService<Practica> practicaService = new GenericService<Practica>();
+        TurnoService turnoService = new TurnoService();
 
         public Turno turnoActual;
+        int medicoId;
+        DateTime fecha;
 
-        public AgregarEditarTurnoView(int? medicoId, DateTime? fecha)
+        public AgregarEditarTurnoView(int medicoId, DateTime fecha)
         {
             InitializeComponent();
-            cboMedicos.SelectedValue = medicoId;
-            dtpFechaTurno.Value = fecha.Value;
+            this.medicoId = medicoId;
+            this.fecha = fecha;
         }
 
         public AgregarEditarTurnoView(Turno turno)
@@ -89,11 +92,14 @@ namespace ClinicaDesktop.Views
 
         private void AgregarEditarTurnoView_Load(object sender, EventArgs e)
         {
-            CargarCombos();
+            CargarCombos(turnoActual, medicoId, fecha);
         }
 
-        private async void CargarCombos()
+        private async void CargarCombos(Turno? turno, int medicoId, DateTime fecha)
         {
+            //ShowInActivity.Hide();
+            cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
+
             cboMedicos.DataSource = await medicoService.GetAllAsync();
             cboMedicos.DisplayMember = "NombreCompleto";
             cboMedicos.ValueMember = "Id";
@@ -102,12 +108,26 @@ namespace ClinicaDesktop.Views
             cboPacientes.DisplayMember = "NombreCompleto";
             cboPacientes.ValueMember = "Id";
 
-
             cboPracticas.DataSource = await practicaService.GetAllAsync();
             cboPracticas.DisplayMember = "Nombre";
             cboPracticas.ValueMember = "Id";
 
-            cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
+            cboHorarios.DataSource = await turnoService.GetHorariosDisponibles(medicoId, fecha);
+
+            if (turno == null)
+            {
+                cboTecnicas.SelectedIndex = -1;
+                cboMedicos.SelectedIndex = -1;
+                cboPacientes.SelectedIndex = -1;
+                cboPracticas.SelectedIndex = -1;
+            }
+            else
+            {
+                cboTecnicas.SelectedItem = turno.Tecnica;
+                cboMedicos.SelectedValue = turno.MedicoEfectorId;
+                cboPacientes.SelectedValue = turno.PacienteId;
+                cboPracticas.SelectedValue = turno.PracticaId;
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ClinicaBackend.DataContext;
 using ClinicaServices.Models;
+using ClinicaServices.Enums;
 
 namespace ClinicaBackend.Controllers
 {
@@ -26,6 +27,26 @@ namespace ClinicaBackend.Controllers
         public async Task<ActionResult<IEnumerable<Practica>>> GetPracticas()
         {
             return await _context.Practicas.ToListAsync();
+        }
+
+        [HttpGet("practicas/{tecnica}")]
+        public async Task<IActionResult> GetPracticasPorTecnica(TecnicaEnum tecnica)
+        {
+            try
+            {
+                var practicas = await _context.Practicas
+                             .Where(p => p.Tecnica == tecnica)
+                             .ToListAsync();
+
+                if (practicas == null || !practicas.Any())
+                    return NotFound("No se encontraron prácticas para la técnica seleccionada.");
+
+                return Ok(practicas);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno: {ex.Message}");
+            }
         }
 
         // GET: api/Practicas/5

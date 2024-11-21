@@ -11,8 +11,8 @@ namespace ClinicaApp.ViewModels
         private readonly GenericService<Mutual> mutualService = new GenericService<Mutual>();
         private readonly GenericService<Localidad> localidadService = new GenericService<Localidad>();
 
+        #region Propiedades
         private Paciente editarPaciente;
-
         public Paciente EditarPaciente
         {
             get { return editarPaciente; }
@@ -20,7 +20,12 @@ namespace ClinicaApp.ViewModels
             {
                 editarPaciente = value;
                 OnPropertyChanged();
-                SettingData();
+                // Si las listas ya están cargadas, llama a SettingData.
+                if (ListaMutuales != null && ListaMutuales.Any() &&
+                    ListaLocalidades != null && ListaLocalidades.Any())
+                {
+                    SettingData();
+                }
             }
         }
 
@@ -32,14 +37,13 @@ namespace ClinicaApp.ViewModels
                 Apellido = editarPaciente.Apellido;
                 Direccion = editarPaciente.Direccion;
                 Telefono = editarPaciente.Telefono;
-                Email = editarPaciente.Email;
                 FechaNacimiento = (DateTime)editarPaciente.FechaNacimiento;
                 Documento = editarPaciente.Documento;
                 MutualId = editarPaciente.MutualId;
                 LocalidadId = (int)editarPaciente.LocalidadId;
 
-                MutualSeleccionada = ListaMutuales.FirstOrDefault(m => m.Id == MutualId);
-                LocalidadSeleccionada = ListaLocalidades.FirstOrDefault(l => l.Id == LocalidadId);
+                MutualSeleccionada = ListaMutuales?.FirstOrDefault(m => m.Id == MutualId);
+                LocalidadSeleccionada = ListaLocalidades?.FirstOrDefault(l => l.Id == LocalidadId);
             }
             else
             {
@@ -59,7 +63,6 @@ namespace ClinicaApp.ViewModels
         }
 
         private string nombre;
-
         public string Nombre
         {
             get { return nombre; }
@@ -71,7 +74,6 @@ namespace ClinicaApp.ViewModels
         }
 
         private string apellido;
-
         public string Apellido
         {
             get { return apellido; }
@@ -83,7 +85,6 @@ namespace ClinicaApp.ViewModels
         }
 
         private string direccion;
-
         public string Direccion
         {
             get { return direccion; }
@@ -214,33 +215,18 @@ namespace ClinicaApp.ViewModels
                 }
             }
         }
+        #endregion
 
+        #region Commands
         public Command GuardarPacienteCommand { get; }
         public Command VolverCommand { get; }
+        #endregion
 
         public AgregarEditarPacienteViewModel()
         {
             GuardarPacienteCommand = new Command(async () => await GuardarPaciente());
             VolverCommand = new Command(async () => await VolverALista());
             CargarListasAsync();
-        }
-
-        private async Task VolverALista()
-        {
-            //vaciar los campos
-            Nombre = string.Empty;
-            Apellido = string.Empty;
-            Direccion = string.Empty;
-            Telefono = string.Empty;
-            Email = string.Empty;
-            FechaNacimiento = DateTime.Now;
-            Documento = string.Empty;
-            MutualId = 0;
-            LocalidadId = 0;
-            MutualSeleccionada = null;
-            LocalidadSeleccionada = null;
-
-            await Shell.Current.GoToAsync("//ListaPacientes");
         }
 
         private async Task CargarListasAsync()
@@ -255,7 +241,10 @@ namespace ClinicaApp.ViewModels
                 var localidades = await localidadService.GetAllAsync();
                 ListaLocalidades = new ObservableCollection<Localidad>(localidades);
 
-                //SettingData();
+                if (EditarPaciente != null)
+                {
+                    SettingData();
+                }
             }
             catch (Exception ex)
             {
@@ -271,7 +260,6 @@ namespace ClinicaApp.ViewModels
                 editarPaciente.Apellido = Apellido;
                 editarPaciente.Direccion = Direccion;
                 editarPaciente.Telefono = Telefono;
-                editarPaciente.Email = Email;
                 editarPaciente.FechaNacimiento = FechaNacimiento;
                 editarPaciente.Documento = Documento;
                 editarPaciente.MutualId = MutualSeleccionada.Id;
@@ -287,7 +275,6 @@ namespace ClinicaApp.ViewModels
                     Apellido = Apellido,
                     Direccion = Direccion,
                     Telefono = Telefono,
-                    Email = Email,
                     FechaNacimiento = FechaNacimiento,
                     Documento = Documento,
                     MutualId = MutualId,
@@ -295,6 +282,12 @@ namespace ClinicaApp.ViewModels
                 };
                 await pacienteService.AddAsync(paciente);
             }
+            await VolverALista();
+        }
+
+        private async Task VolverALista()
+        {
+            EditarPaciente = null;
             await Shell.Current.GoToAsync("//ListaPacientes");
         }
     }

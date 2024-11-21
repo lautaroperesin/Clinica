@@ -26,11 +26,6 @@
             <Entry Placeholder="Teléfono" 
                    Text="{Binding Telefono}"  />
 
-            <!-- Email -->
-            <Entry Placeholder="Correo Electrónico" 
-                   Text="{Binding Email}" 
-                   Keyboard="Email" />
-
             <!-- Fecha de Nacimiento -->
             <DatePicker Date="{Binding FechaNacimiento}" />
 

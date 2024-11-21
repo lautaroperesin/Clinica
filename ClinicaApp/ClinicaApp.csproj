@@ -91,6 +91,9 @@
 	  <MauiXaml Update="Views\AgregarEditarPacienteView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\NuevoTurnoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PacientesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
