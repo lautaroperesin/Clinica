@@ -1,4 +1,5 @@
-﻿using ClinicaServices.Enums;
+﻿using ClinicaDesktop.Class;
+using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;
@@ -31,11 +32,11 @@ namespace ClinicaDesktop.Views
         {
             try
             {
-                // ShowInActivity.Show();
+                ShowInActivity.Show();
 
                 listaTurnosAtendidos = await turnoService.GetTurnosAtendidos();
 
-                // ShowInActivity.Hide();
+                ShowInActivity.Hide();
 
                 await CargarGrilla();
             }

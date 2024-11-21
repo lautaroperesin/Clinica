@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClinicaDesktop.Views
 {
-    public partial class ShowInActivity : Form
+    public partial class ShowInActivityView : Form
     {
-        public ShowInActivity()
+        public ShowInActivityView()
         {
             InitializeComponent();
         }

@@ -1,4 +1,5 @@
-﻿using ClinicaServices.Models;
+﻿using ClinicaDesktop.Class;
+using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace ClinicaDesktop.Views
 
         private async void ObtenerListas()
         {
-            //ShowInActivity.Show();
+            ShowInActivity.Show();
 
             var tareas = new List<Task>
             {
@@ -46,7 +47,7 @@ namespace ClinicaDesktop.Views
 
             await Task.WhenAll(tareas);
 
-            //ShowInActivity.Hide();
+            ShowInActivity.Hide();
 
             CargarCombos();
             await CargarGrilla();

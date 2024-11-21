@@ -9,53 +9,113 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout 
+        Padding="20" 
+        Spacing="20" 
+        BackgroundColor="#F9F9F9">
+
+            <!-- Título -->
+            <Label 
+            Text="Gestión de Paciente"
+            FontSize="Title"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            TextColor="Teal"
+            Margin="0,10" />
+
             <!-- Nombre -->
-            <Entry Placeholder="Nombre" 
-                   Text="{Binding Nombre}" />
+            <Entry 
+            Placeholder="Nombre"
+            Text="{Binding Nombre}" 
+            BackgroundColor="White"
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
             <!-- Apellido -->
-            <Entry Placeholder="Apellido" 
-                   Text="{Binding Apellido}" />
+            <Entry 
+            Placeholder="Apellido"
+            Text="{Binding Apellido}" 
+            BackgroundColor="White"
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
             <!-- Dirección -->
-            <Entry Placeholder="Dirección" 
-                   Text="{Binding Direccion}" />
+            <Entry 
+            Placeholder="Dirección"
+            Text="{Binding Direccion}" 
+            BackgroundColor="White"
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
             <!-- Teléfono -->
-            <Entry Placeholder="Teléfono" 
-                   Text="{Binding Telefono}"  />
+            <Entry 
+            Placeholder="Teléfono"
+            Text="{Binding Telefono}" 
+            Keyboard="Telephone"
+            BackgroundColor="White"
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
             <!-- Fecha de Nacimiento -->
-            <DatePicker Date="{Binding FechaNacimiento}" />
+            <DatePicker 
+            Date="{Binding FechaNacimiento}"
+            TextColor="Black"
+            Margin="0,0,0,10" />
 
             <!-- Documento -->
-            <Entry Placeholder="Documento (DNI)" 
-                   Text="{Binding Documento}" />
+            <Entry 
+            Placeholder="Documento (DNI)"
+            Text="{Binding Documento}" 
+            Keyboard="Numeric"
+            BackgroundColor="White"
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
             <!-- Mutual -->
-            <Picker Title="Seleccione una mutual" 
-                    ItemsSource="{Binding ListaMutuales}" 
-                    ItemDisplayBinding="{Binding Nombre}"
-                    SelectedItem="{Binding MutualSeleccionada, Mode=TwoWay}" />
+            <Picker 
+            Title="Seleccione una mutual"
+            ItemsSource="{Binding ListaMutuales}" 
+            ItemDisplayBinding="{Binding Nombre}" 
+            SelectedItem="{Binding MutualSeleccionada, Mode=TwoWay}"
+            TextColor="Black"
+            Margin="0,0,0,10" />
 
             <!-- Localidad -->
-            <Picker Title="Seleccione una localidad" 
-                    ItemsSource="{Binding ListaLocalidades}"
-                    ItemDisplayBinding="{Binding Nombre}" 
-                    SelectedItem="{Binding LocalidadSeleccionada, Mode=TwoWay}" />
+            <Picker 
+            Title="Seleccione una localidad"
+            ItemsSource="{Binding ListaLocalidades}" 
+            ItemDisplayBinding="{Binding Nombre}" 
+            SelectedItem="{Binding LocalidadSeleccionada, Mode=TwoWay}"
+            TextColor="Black"
+            Margin="0,0,0,10" />
 
-            <!-- Botón Guardar -->
-            <Button Text="Guardar Paciente" 
-                    Command="{Binding GuardarPacienteCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            
-            <!-- Botón Volver -->
-            <Button Text="Volver" 
-                    Command="{Binding VolverCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+            <!-- Botones de Acción -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <!-- Botón Guardar -->
+                <Button 
+                Text="Guardar"
+                Command="{Binding GuardarPacienteCommand}"
+                BackgroundColor="Teal"
+                TextColor="White"
+                CornerRadius="10"
+                WidthRequest="150"
+                HeightRequest="50" />
+
+                <!-- Botón Volver -->
+                <Button 
+                Text="Volver"
+                Command="{Binding VolverCommand}"
+                BackgroundColor="#E0E0E0"
+                TextColor="Black"
+                CornerRadius="10"
+                WidthRequest="150"
+                HeightRequest="50" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -11,7 +11,7 @@
     Title="ClinicaApp"
     FlyoutBackgroundImage="photo.jpg"
     FlyoutBackgroundImageAspect="AspectFill"
-    FlyoutHeaderBehavior="CollapseOnScroll">
+    FlyoutHeaderBehavior="CollapseOnScroll" BackgroundColor="#F0F0F0">
 
     <Shell.BindingContext>
         <viewmodels:ClinicaShellViewModel />
@@ -26,19 +26,19 @@
     </Shell.FlyoutFooter>
 
     <FlyoutItem Route="ClinicaApp"
-                FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
+                FlyoutDisplayOptions="AsMultipleItems"
+                x:Name="FlyoutItemsPrincipal">
         <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+            Title="Inicio"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
 
         <ShellContent
             Title="Nuevo turno"
             ContentTemplate="{DataTemplate views:NuevoTurnoView}"
             Route="NuevoTurno" />
 
-        <Tab Title="Pacientes"
-             Route="Pacientes">
+        <Tab Title="Pacientes" Route="Pacientes">
             <ShellContent
                 Title="Lista"
                 ContentTemplate="{DataTemplate views:PacientesView}"

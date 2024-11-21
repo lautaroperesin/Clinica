@@ -8,38 +8,79 @@
         <viewModels:PacientesViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto, *, Auto, Auto">
-        <Entry Placeholder="Buscar pacientes..."
-               Text="{Binding FiltroPacientes}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="0,10,0,10"
-               Grid.Row="0"/>
-        <ScrollView Grid.Row="1">
-            <CollectionView ItemsSource="{Binding Pacientes}"
-                SelectedItem="{Binding PacienteSeleccionado}"
-                SelectionMode="Single">
+    <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="10" BackgroundColor="#F9F9F9">
+
+        <!-- Barra de búsqueda -->
+        <Entry 
+        Placeholder="Buscar pacientes..."
+        Text="{Binding FiltroPacientes}"
+        FontSize="16"
+        BackgroundColor="White"
+        TextColor="Black"
+        HeightRequest="40"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        Margin="0,10"
+        Grid.Row="0" />
+
+        <!-- Lista de pacientes -->
+        <ScrollView Grid.Row="1" Margin="0,10">
+            <CollectionView 
+            ItemsSource="{Binding Pacientes}"
+            SelectedItem="{Binding PacienteSeleccionado}"
+            SelectionMode="Single"
+            BackgroundColor="White"
+            Margin="0,0,0,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-                            <Label Text="{Binding NombreCompleto}" FontSize="16" VerticalOptions="Center"/>
-                            <Label Text="{Binding Documento}" FontSize="14" VerticalOptions="Center" Margin="10,0,0,0"/>
-                        </StackLayout>
+                        <Frame 
+                        Padding="10"
+                        Margin="5,5,5,0"
+                        CornerRadius="10"
+                        HasShadow="True"
+                        BackgroundColor="#E3F2FD">
+                            <HorizontalStackLayout Spacing="15">
+                                <Label 
+                                Text="{Binding NombreCompleto}" 
+                                FontSize="16" 
+                                FontAttributes="Bold"
+                                VerticalOptions="Center" 
+                                TextColor="Black" />
+                                <Label 
+                                Text="{Binding Mutual.Nombre}" 
+                                FontSize="14" 
+                                VerticalOptions="Center" 
+                                TextColor="Gray" />
+                            </HorizontalStackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
-        <Button Text="Agregar paciente"
-                Command="{Binding AgregarPacienteCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Margin="0,10,0,10"
-                Grid.Row="2"/>
-        <Button Text="Editar paciente"
-                Command="{Binding EditarPacienteCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Margin="0,10,0,10"
-                Grid.Row="3"/>
+
+        <!-- Botón agregar paciente -->
+        <Button 
+        Text="Agregar paciente"
+        Command="{Binding AgregarPacienteCommand}"
+        BackgroundColor="Teal"
+        TextColor="White"
+        CornerRadius="10"
+        HeightRequest="50"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        Grid.Row="2" />
+
+        <!-- Botón editar paciente -->
+        <Button 
+        Text="Editar paciente"
+        Command="{Binding EditarPacienteCommand}"
+        BackgroundColor="#E0E0E0"
+        TextColor="Black"
+        CornerRadius="10"
+        HeightRequest="50"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        Grid.Row="3" />
+
     </Grid>
 </ContentPage>

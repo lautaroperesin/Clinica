@@ -9,50 +9,102 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout Margin="20">
+            <!-- Título de la vista -->
             <Label 
-             FontSize="Title"
-             Text="Creando nueva cuenta en Clinica App"
-             VerticalOptions="Center" 
-             HorizontalOptions="Center" />
-            <Grid RowDefinitions="2*,2*,2*,2*,*" ColumnDefinitions="*,*">
+            FontSize="Large" 
+            FontAttributes="Bold" 
+            TextColor="Teal"
+            Text="Crear una nueva cuenta en Clinica App"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Start" 
+            Margin="0,20" />
+
+            <!-- Formulario en un Grid -->
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" 
+              ColumnDefinitions="2*,3*" 
+              Padding="10"
+              RowSpacing="20">
+                <!-- Apellido y Nombre -->
                 <Label Grid.Row="0" Grid.Column="0" 
-                    HorizontalTextAlignment="End"
-                    VerticalTextAlignment="Center"
-                    Margin="5,10">Apellido y Nombre:</Label>
+                Text="Apellido y Nombre:"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"
+                Margin="5,0"
+                TextColor="Gray"/>
                 <Entry Grid.Row="0" Grid.Column="1" 
-                    Text="{Binding Nombre}"
-                    Margin="10,20,10,20"></Entry>
+                Text="{Binding Nombre}" 
+                Placeholder="Ingrese su nombre completo"
+                Margin="5"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="40" />
+
+                <!-- Email -->
                 <Label Grid.Row="1" Grid.Column="0" 
-                    HorizontalTextAlignment="End"
-                    VerticalTextAlignment="Center"
-                    Margin="10,20">Email:</Label>
+                Text="Email:"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"
+                Margin="5,0"
+                TextColor="Gray"/>
                 <Entry Grid.Row="1" Grid.Column="1" 
-                    Text="{Binding Mail}"
-                    Margin="10,20,10,20"></Entry>
+                Text="{Binding Mail}" 
+                Placeholder="Ingrese su email"
+                Margin="5"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="40" />
 
+                <!-- Contraseña -->
                 <Label Grid.Row="2" Grid.Column="0" 
-                    HorizontalTextAlignment="End"
-                    VerticalTextAlignment="Center"
-                    Margin="10,20">Contraseña:</Label>
+                Text="Contraseña:"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"
+                Margin="5,0"
+                TextColor="Gray"/>
                 <Entry Grid.Row="2" Grid.Column="1" 
-                    Text="{Binding Password}"
-                    Margin="10,20,100,20" IsPassword="True"></Entry>
+                Text="{Binding Password}" 
+                Placeholder="Ingrese su contraseña"
+                Margin="5"
+                BackgroundColor="White"
+                TextColor="Black"
+                IsPassword="True"
+                HeightRequest="40" />
 
+                <!-- Verificar Contraseña -->
                 <Label Grid.Row="3" Grid.Column="0" 
-                    HorizontalTextAlignment="End"
-                    VerticalTextAlignment="Center"
-                    Margin="10,20">Verificar Contraseña:</Label>
+                Text="Verificar Contraseña:"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"
+                Margin="5,0"
+                TextColor="Gray"/>
                 <Entry Grid.Row="3" Grid.Column="1" 
-                    Text="{Binding VerifyPassword}"
-                    Margin="10,20,100,20" IsPassword="True"></Entry>
-
-                <Button Text="Registrarse"
-                     Command="{Binding RegistrarseCommand}"
-                     Grid.Row="4" Grid.Column="0"
-                     Grid.ColumnSpan="2"
-                     Margin="100,10"
-                     ></Button>
+                Text="{Binding VerifyPassword}" 
+                Placeholder="Vuelva a ingresar su contraseña"
+                Margin="5"
+                BackgroundColor="White"
+                TextColor="Black"
+                IsPassword="True"
+                HeightRequest="40" />
             </Grid>
+
+            <!-- Botón de Registro -->
+            <Button 
+            Text="Registrarse"
+            Command="{Binding RegistrarseCommand}"
+            TextColor="White"
+            BackgroundColor="Teal"
+            FontSize="Medium"
+            CornerRadius="10"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            WidthRequest="150"
+            HeightRequest="50"
+            Margin="0,20" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
