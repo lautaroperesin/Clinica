@@ -39,10 +39,10 @@
             label7 = new Label();
             cboTecnicas = new ComboBox();
             cboPracticas = new ComboBox();
-            cboMedicos = new ComboBox();
             cboPacientes = new ComboBox();
             cboHorarios = new ComboBox();
             label8 = new Label();
+            txtMedico = new TextBox();
             SuspendLayout();
             // 
             // btnCancelar
@@ -74,7 +74,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(63, 186);
+            label2.Location = new Point(63, 112);
             label2.Name = "label2";
             label2.Size = new Size(61, 21);
             label2.TabIndex = 57;
@@ -118,11 +118,12 @@
             // dtpFechaTurno
             // 
             dtpFechaTurno.Anchor = AnchorStyles.None;
+            dtpFechaTurno.Enabled = false;
             dtpFechaTurno.Font = new Font("Segoe UI", 12F);
             dtpFechaTurno.Format = DateTimePickerFormat.Short;
-            dtpFechaTurno.Location = new Point(141, 108);
+            dtpFechaTurno.Location = new Point(141, 60);
             dtpFechaTurno.Name = "dtpFechaTurno";
-            dtpFechaTurno.Size = new Size(184, 29);
+            dtpFechaTurno.Size = new Size(114, 29);
             dtpFechaTurno.TabIndex = 67;
             // 
             // label6
@@ -130,7 +131,7 @@
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(74, 114);
+            label6.Location = new Point(74, 66);
             label6.Name = "label6";
             label6.Size = new Size(50, 21);
             label6.TabIndex = 68;
@@ -141,7 +142,7 @@
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(57, 83);
+            label7.Location = new Point(57, 151);
             label7.Name = "label7";
             label7.Size = new Size(67, 21);
             label7.TabIndex = 69;
@@ -158,6 +159,7 @@
             cboTecnicas.Name = "cboTecnicas";
             cboTecnicas.Size = new Size(184, 29);
             cboTecnicas.TabIndex = 70;
+            cboTecnicas.SelectedIndexChanged += cboTecnicas_SelectedIndexChanged;
             // 
             // cboPracticas
             // 
@@ -171,18 +173,6 @@
             cboPracticas.Size = new Size(184, 29);
             cboPracticas.TabIndex = 71;
             // 
-            // cboMedicos
-            // 
-            cboMedicos.Anchor = AnchorStyles.None;
-            cboMedicos.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cboMedicos.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboMedicos.Font = new Font("Segoe UI", 12F);
-            cboMedicos.FormattingEnabled = true;
-            cboMedicos.Location = new Point(141, 178);
-            cboMedicos.Name = "cboMedicos";
-            cboMedicos.Size = new Size(184, 29);
-            cboMedicos.TabIndex = 72;
-            // 
             // cboPacientes
             // 
             cboPacientes.Anchor = AnchorStyles.None;
@@ -190,7 +180,7 @@
             cboPacientes.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboPacientes.Font = new Font("Segoe UI", 12F);
             cboPacientes.FormattingEnabled = true;
-            cboPacientes.Location = new Point(141, 73);
+            cboPacientes.Location = new Point(141, 141);
             cboPacientes.Name = "cboPacientes";
             cboPacientes.Size = new Size(184, 29);
             cboPacientes.TabIndex = 73;
@@ -202,7 +192,7 @@
             cboHorarios.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboHorarios.Font = new Font("Segoe UI", 12F);
             cboHorarios.FormattingEnabled = true;
-            cboHorarios.Location = new Point(141, 143);
+            cboHorarios.Location = new Point(141, 176);
             cboHorarios.Name = "cboHorarios";
             cboHorarios.Size = new Size(184, 29);
             cboHorarios.TabIndex = 75;
@@ -212,11 +202,20 @@
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(61, 151);
+            label8.Location = new Point(61, 184);
             label8.Name = "label8";
             label8.Size = new Size(63, 21);
             label8.TabIndex = 74;
             label8.Text = "Horario";
+            // 
+            // txtMedico
+            // 
+            txtMedico.Enabled = false;
+            txtMedico.Font = new Font("Segoe UI", 12F);
+            txtMedico.Location = new Point(141, 104);
+            txtMedico.Name = "txtMedico";
+            txtMedico.Size = new Size(184, 29);
+            txtMedico.TabIndex = 76;
             // 
             // AgregarEditarTurnoView
             // 
@@ -224,10 +223,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(389, 411);
+            Controls.Add(txtMedico);
             Controls.Add(cboHorarios);
             Controls.Add(label8);
             Controls.Add(cboPacientes);
-            Controls.Add(cboMedicos);
             Controls.Add(cboPracticas);
             Controls.Add(cboTecnicas);
             Controls.Add(label7);
@@ -265,9 +264,9 @@
         private DateTimePicker dtpFechaTurno;
         private Label label6;
         private Label label7;
-        private ComboBox cboMedicos;
         private ComboBox cboPacientes;
         private ComboBox cboHorarios;
         private Label label8;
+        private TextBox txtMedico;
     }
 }

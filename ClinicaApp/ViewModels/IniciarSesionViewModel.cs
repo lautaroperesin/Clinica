@@ -40,7 +40,7 @@ namespace ClinicaApp.ViewModels
             _clientAuth = new FirebaseAuthClient(new FirebaseAuthConfig()
             {
                 ApiKey = "AIzaSyBkrYjYPVmVjra7d9PdPAW3I-lSZNdE2aU",
-                AuthDomain = "localhost",
+                AuthDomain = "clinica-5b618.firebaseapp.com",
                 Providers = new Firebase.Auth.Providers.FirebaseAuthProvider[]
                 {
                     new EmailProvider()

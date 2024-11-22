@@ -1,3 +1,4 @@
+using ClinicaDesktop.ViewReports;
 using ClinicaDesktop.Views;
 
 namespace ClinicaDesktop
@@ -54,6 +55,12 @@ namespace ClinicaDesktop
         {
             CajaView cajaView = new CajaView();
             cajaView.ShowDialog();
+        }
+
+        private void iconMenuListadoPacientes_Click(object sender, EventArgs e)
+        {
+            PacientesViewReport pacientesViewReport = new PacientesViewReport();
+            pacientesViewReport.ShowDialog();
         }
     }
 }

@@ -121,7 +121,7 @@
     <value>false</value>
   </data>
   <data name="UrlApi" xml:space="preserve">
-    <value>https://clinica.azurewebsites.net/api/</value>
+    <value>https://dataclinica.azurewebsites.net/api/</value>
   </data>
   <data name="UrlApiLocal" xml:space="preserve">
     <value>https://localhost:7133/api/</value>

@@ -1,4 +1,5 @@
-﻿using ClinicaServices.Enums;
+﻿using ClinicaDesktop.Class;
+using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;
@@ -15,9 +16,8 @@ namespace ClinicaDesktop.Views
 {
     public partial class TurnosView : Form
     {
-        //TurnoService turnoService = new TurnoService();
+        TurnoService turnoService = new TurnoService();
         GenericService<Medico> medicoService = new GenericService<Medico>();
-        GenericService<Turno> turnoService = new GenericService<Turno>();
 
         BindingSource bsTurnos = new BindingSource();
         List<Turno> listaTurnos = new List<Turno>();
@@ -40,12 +40,12 @@ namespace ClinicaDesktop.Views
         {
             try
             {
-                // ShowInActivity.Show();
+                ShowInActivity.Show();
 
                 listaTurnos = await turnoService.GetAllAsync();
                 listaMedicos = await medicoService.GetAllAsync();
 
-                // ShowInActivity.Hide();
+                ShowInActivity.Hide();
 
                 CargarCombo();
             }
@@ -67,8 +67,6 @@ namespace ClinicaDesktop.Views
 
                 int medicoId = (int)cboMedicos.SelectedValue;
                 DateTime fechaSeleccionada = dtpFechaTurno.Value.Date;
-
-                //var turnos = await turnoService.GetTurnosPorMedicoYFecha(medicoId, fechaSeleccionada);
 
                 var turnosFiltrados = listaTurnos.Where(t => t.MedicoEfectorId == medicoId && t.FechaTurno.Value.Date == fechaSeleccionada).ToList();
 
@@ -98,27 +96,27 @@ namespace ClinicaDesktop.Views
         private async void btnEditar_Click(object sender, EventArgs e)
         {
             turnoSeleccionado = (Turno)bsTurnos.Current;
-            using (var agregarEditarTurnoView = new AgregarEditarTurnoView(turnoSeleccionado))
+            var medico = (Medico)cboMedicos.SelectedItem;
+            var fecha = dtpFechaTurno.Value;
+
+            using (var agregarEditarTurnoView = new AgregarEditarTurnoView(turnoSeleccionado, medico, fecha))
             {
                 if (agregarEditarTurnoView.ShowDialog() == DialogResult.OK)
                 {
-                    // Actualiza el turno en la base de datos
                     await turnoService.UpdateAsync(agregarEditarTurnoView.turnoActual);
-                    //await ActualizarLista
-                    await CargarGrilla(); // Refresca los datos en la grilla
+                    await CargarGrilla();
                 }
             }
         }
 
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            var medicoId = (int)cboMedicos.SelectedValue;
+            var medico = (Medico)cboMedicos.SelectedItem;
             var fecha = dtpFechaTurno.Value;
 
-            AgregarEditarTurnoView agregarEditarTurnoView = new AgregarEditarTurnoView(medicoId, fecha);
+            AgregarEditarTurnoView agregarEditarTurnoView = new AgregarEditarTurnoView(medico, fecha);
             if (agregarEditarTurnoView.ShowDialog() == DialogResult.OK)
             {
-                // Agrega el nuevo turno a la base de datos
                 await turnoService.AddAsync(agregarEditarTurnoView.turnoActual);
                 await CargarGrilla();
             }

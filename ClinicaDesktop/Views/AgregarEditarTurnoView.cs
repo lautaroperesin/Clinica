@@ -1,4 +1,5 @@
-﻿using ClinicaServices.Enums;
+﻿using ClinicaDesktop.Class;
+using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;
@@ -17,45 +18,28 @@ namespace ClinicaDesktop.Views
     {
         GenericService<Medico> medicoService = new GenericService<Medico>();
         GenericService<Paciente> pacienteService = new GenericService<Paciente>();
-        GenericService<Practica> practicaService = new GenericService<Practica>();
+        PracticaService practicaService = new PracticaService();
         TurnoService turnoService = new TurnoService();
 
         public Turno turnoActual;
-        int medicoId;
+        Medico medicoActual;
         DateTime fecha;
 
-        public AgregarEditarTurnoView(int medicoId, DateTime fecha)
+        public AgregarEditarTurnoView(Medico medico, DateTime fecha)
         {
             InitializeComponent();
-            this.medicoId = medicoId;
+            this.medicoActual = medico;
             this.fecha = fecha;
+            dtpFechaTurno.Value = fecha;
+            txtMedico.Text = medico.NombreCompleto;
         }
 
-        public AgregarEditarTurnoView(Turno turno)
+        public AgregarEditarTurnoView(Turno turno, Medico medico, DateTime fecha)
         {
             InitializeComponent();
+            this.medicoActual = medico;
+            this.fecha = fecha;
             this.turnoActual = turno;
-            //CargarDatos();
-        }
-
-        private void CargarDatos(Turno turno)
-        {
-            if(turno != null)
-            {
-                dtpFechaTurno.Value = turno.FechaTurno.Value;
-                cboMedicos.SelectedValue = turno.MedicoEfectorId;
-                cboPacientes.SelectedValue = turno.PacienteId;
-                cboPracticas.SelectedValue = turno.PracticaId;
-                cboTecnicas.SelectedValue = turno.Tecnica;
-            }
-            else
-            {
-                dtpFechaTurno.Value = DateTime.Now;
-                cboMedicos.SelectedIndex = -1;
-                cboPacientes.SelectedIndex = -1;
-                cboPracticas.SelectedIndex = -1;
-                cboTecnicas.SelectedIndex = -1;
-            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -65,7 +49,7 @@ namespace ClinicaDesktop.Views
                 turnoActual.PacienteId = (int)cboPacientes.SelectedValue;
                 turnoActual.PracticaId = (int)cboPracticas.SelectedValue;
                 turnoActual.Tecnica = (TecnicaEnum)cboTecnicas.SelectedValue;
-                turnoActual.MedicoEfectorId = (int)cboMedicos.SelectedValue;
+                //turnoActual.MedicoEfectorId = (int)cboMedicos.SelectedValue;
                 turnoActual.FechaTurno = dtpFechaTurno.Value;
             }
             else
@@ -75,7 +59,7 @@ namespace ClinicaDesktop.Views
                     PacienteId = (int)cboPacientes.SelectedValue,
                     PracticaId = (int)cboPracticas.SelectedValue,
                     Tecnica = (TecnicaEnum)cboTecnicas.SelectedValue,
-                    MedicoEfectorId = (int)cboMedicos.SelectedValue,
+                    //MedicoEfectorId = (int)cboMedicos.SelectedValue,
                     FechaTurno = dtpFechaTurno.Value
                 };
             }
@@ -92,41 +76,54 @@ namespace ClinicaDesktop.Views
 
         private void AgregarEditarTurnoView_Load(object sender, EventArgs e)
         {
-            CargarCombos(turnoActual, medicoId, fecha);
+            CargarCombos(turnoActual, medicoActual, fecha);
         }
 
-        private async void CargarCombos(Turno? turno, int medicoId, DateTime fecha)
+        private async void CargarCombos(Turno? turno, Medico medico, DateTime fecha)
         {
-            //ShowInActivity.Hide();
             cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
-
-            cboMedicos.DataSource = await medicoService.GetAllAsync();
-            cboMedicos.DisplayMember = "NombreCompleto";
-            cboMedicos.ValueMember = "Id";
 
             cboPacientes.DataSource = await pacienteService.GetAllAsync();
             cboPacientes.DisplayMember = "NombreCompleto";
             cboPacientes.ValueMember = "Id";
 
-            cboPracticas.DataSource = await practicaService.GetAllAsync();
-            cboPracticas.DisplayMember = "Nombre";
-            cboPracticas.ValueMember = "Id";
+            //cboPracticas.DataSource = await practicaService.GetAllAsync();
+            //cboPracticas.DisplayMember = "Nombre";
+            //cboPracticas.ValueMember = "Id";
+             
+            var horariosDisponibles = await turnoService.GetHorariosDisponibles(medico, fecha);
+            cboHorarios.DataSource = horariosDisponibles;
 
-            cboHorarios.DataSource = await turnoService.GetHorariosDisponibles(medicoId, fecha);
 
             if (turno == null)
             {
                 cboTecnicas.SelectedIndex = -1;
-                cboMedicos.SelectedIndex = -1;
                 cboPacientes.SelectedIndex = -1;
                 cboPracticas.SelectedIndex = -1;
+                cboHorarios.SelectedIndex = -1;
             }
             else
             {
                 cboTecnicas.SelectedItem = turno.Tecnica;
-                cboMedicos.SelectedValue = turno.MedicoEfectorId;
                 cboPacientes.SelectedValue = turno.PacienteId;
                 cboPracticas.SelectedValue = turno.PracticaId;
+                cboHorarios.SelectedValue = turno.FechaTurno.Value;
+            }
+        }
+
+        private async void cboTecnicas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTecnicas.SelectedIndex != -1)
+            {
+                cboPracticas.Enabled = true;
+                TecnicaEnum tecnicaSeleccionada = (TecnicaEnum)cboTecnicas.SelectedItem;
+                cboPracticas.DataSource = await practicaService.GetPracticasPorTecnicaAsync(tecnicaSeleccionada);
+                cboPracticas.DisplayMember = "Nombre";
+                cboPracticas.ValueMember = "Id";
+            }
+            else
+            {
+                cboPracticas.Enabled = true;
             }
         }
     }

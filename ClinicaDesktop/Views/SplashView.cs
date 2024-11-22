@@ -26,8 +26,8 @@ namespace ClinicaDesktop.Views
         private async void SplashView_Activated(object sender, EventArgs e)
         {
             var conectarDbTask = ConectarConDb();
-            var imprimirReporteTask = ImprimirReporte();
-            await Task.WhenAll(conectarDbTask, imprimirReporteTask);
+            //var imprimirReporteTask = ImprimirReporte();
+            await Task.WhenAll(conectarDbTask); //, imprimirReporteTask
         }
 
         private async Task ImprimirReporte()
@@ -60,7 +60,7 @@ namespace ClinicaDesktop.Views
         {
             if (progressBar.Value < 98)
                 progressBar.Value += 2;
-            if (dataReady && printReady)
+            if (dataReady) //&& printReady
             {
                 timer.Enabled = false;
                 this.Visible = false;

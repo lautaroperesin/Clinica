@@ -222,7 +222,7 @@ namespace ClinicaApp.ViewModels
         {
             if (MedicoId != null && FechaTurno != default)
             {
-                var horarios = await turnoService.GetHorariosDisponibles((int)MedicoId, FechaTurno);
+                var horarios = await turnoService.GetHorariosDisponibles(MedicoSeleccionado, FechaTurno);
                 HorariosDisponibles = new ObservableCollection<DateTime>(horarios);
             }
         }

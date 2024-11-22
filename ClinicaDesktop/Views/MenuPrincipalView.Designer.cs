@@ -37,17 +37,22 @@
             iconMenuMutuales = new FontAwesome.Sharp.IconMenuItem();
             iconMenuLocalidades = new FontAwesome.Sharp.IconMenuItem();
             iconMenuCaja = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuListados = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuListadoPacientes = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.BackColor = Color.LightBlue;
+            menuStrip1.Dock = DockStyle.None;
             menuStrip1.Font = new Font("Segoe UI", 12F);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuPacientes, iconMenuMedicos, iconMenuTurnos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuCaja });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuCaja, iconMenuTurnos, iconMenuPacientes, iconMenuMedicos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuListados });
+            menuStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(920, 33);
+            menuStrip1.Size = new Size(949, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -148,12 +153,36 @@
             iconMenuCaja.Text = "Caja";
             iconMenuCaja.Click += iconMenuCaja_Click;
             // 
+            // iconMenuListados
+            // 
+            iconMenuListados.DropDownItems.AddRange(new ToolStripItem[] { iconMenuListadoPacientes });
+            iconMenuListados.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            iconMenuListados.IconColor = Color.Black;
+            iconMenuListados.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuListados.IconSize = 25;
+            iconMenuListados.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuListados.Name = "iconMenuListados";
+            iconMenuListados.Size = new Size(104, 29);
+            iconMenuListados.Text = "Listados";
+            // 
+            // iconMenuListadoPacientes
+            // 
+            iconMenuListadoPacientes.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            iconMenuListadoPacientes.IconColor = Color.Black;
+            iconMenuListadoPacientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuListadoPacientes.IconSize = 20;
+            iconMenuListadoPacientes.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuListadoPacientes.Name = "iconMenuListadoPacientes";
+            iconMenuListadoPacientes.Size = new Size(184, 26);
+            iconMenuListadoPacientes.Text = "Pacientes";
+            iconMenuListadoPacientes.Click += iconMenuListadoPacientes_Click;
+            // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(920, 450);
+            ClientSize = new Size(1016, 450);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
@@ -178,5 +207,7 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuLocalidades;
         private FontAwesome.Sharp.IconMenuItem iconMenuPracticas;
         private FontAwesome.Sharp.IconMenuItem iconMenuCaja;
+        private FontAwesome.Sharp.IconMenuItem iconMenuListados;
+        private FontAwesome.Sharp.IconMenuItem iconMenuListadoPacientes;
     }
 }

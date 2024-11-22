@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClinicaBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicio : Migration
+    public partial class InicioProyecto : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,8 +39,6 @@ namespace ClinicaBackend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Matricula = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Nombre = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Apellido = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
@@ -80,8 +78,8 @@ namespace ClinicaBackend.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nombre = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Tecnica = table.Column<int>(type: "int", nullable: true),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -101,8 +99,6 @@ namespace ClinicaBackend.Migrations
                     Apellido = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Direccion = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Telefono = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -137,11 +133,10 @@ namespace ClinicaBackend.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     PacienteId = table.Column<int>(type: "int", nullable: true),
-                    MedicoDerivanteId = table.Column<int>(type: "int", nullable: true),
                     MedicoEfectorId = table.Column<int>(type: "int", nullable: true),
                     PracticaId = table.Column<int>(type: "int", nullable: true),
                     Tecnica = table.Column<int>(type: "int", nullable: true),
-                    FechaConsulta = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaTurno = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     Coseguro = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     FormaPago = table.Column<int>(type: "int", nullable: true),
                     Atendido = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -150,11 +145,6 @@ namespace ClinicaBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Turnos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Turnos_Medicos_MedicoDerivanteId",
-                        column: x => x.MedicoDerivanteId,
-                        principalTable: "Medicos",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Turnos_Medicos_MedicoEfectorId",
                         column: x => x.MedicoEfectorId,
@@ -188,12 +178,12 @@ namespace ClinicaBackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Medicos",
-                columns: new[] { "Id", "Apellido", "Eliminado", "Matricula", "Nombre", "Tecnica", "Telefono" },
+                columns: new[] { "Id", "Apellido", "Eliminado", "Nombre", "Tecnica", "Telefono" },
                 values: new object[,]
                 {
-                    { 1, "Perez", false, "1234", "Juan", 2, "3498123465" },
-                    { 2, "Gomez", false, "5678", "Maria", 1, "3498456754" },
-                    { 3, "Gonzalez", false, "9876", "Carlos", 3, "3498564532" }
+                    { 1, "Perez", false, "Juan", 2, "3498123465" },
+                    { 2, "Gomez", false, "Maria", 1, "3498456754" },
+                    { 3, "Gonzalez", false, "Carlos", 3, "3498564532" }
                 });
 
             migrationBuilder.InsertData(
@@ -238,19 +228,19 @@ namespace ClinicaBackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Pacientes",
-                columns: new[] { "Id", "Apellido", "Direccion", "Documento", "Eliminado", "Email", "FechaNacimiento", "LocalidadId", "MutualId", "Nombre", "Telefono" },
+                columns: new[] { "Id", "Apellido", "Direccion", "Documento", "Eliminado", "FechaNacimiento", "LocalidadId", "MutualId", "Nombre", "Telefono" },
                 values: new object[,]
                 {
-                    { 1, "Peresin", "San Roque 1932", "46041117", false, "lautaro@gmail.com", new DateTime(2004, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, "Lautaro", "3498404954" },
-                    { 2, "Perez", "Independencia", "12345678", false, "juan@gmail.com", new DateTime(1999, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, "Juan", "3498459821" },
-                    { 3, "Gomez", "Belgrano 123", "87654321", false, "maria.gomez@gmail.com", new DateTime(1987, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, "Maria", "3512367890" },
-                    { 4, "Lopez", "Mitre 456", "45678912", false, "carlos.lopez@hotmail.com", new DateTime(1975, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 3, "Carlos", "3517896543" },
-                    { 5, "Martinez", "Rivadavia 789", "11223344", false, "ana.martinez@yahoo.com", new DateTime(1990, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, "Ana", "3541556789" },
-                    { 6, "Fernandez", "San Martin 101", "33445566", false, "luis.fernandez@gmail.com", new DateTime(1982, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, "Luis", "3519987654" },
-                    { 7, "Diaz", "Sarmiento 234", "55667788", false, "sofia.diaz@gmail.com", new DateTime(1995, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4, "Sofia", "3511122334" },
-                    { 8, "Sanchez", "Lavalle 432", "22334455", false, "jorge.sanchez@hotmail.com", new DateTime(1979, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 3, "Jorge", "3516677889" },
-                    { 9, "Mendez", "Alsina 567", "99887766", false, "laura.mendez@gmail.com", new DateTime(1988, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, "Laura", "3513344556" },
-                    { 10, "Ruiz", "Peron 890", "44556677", false, "miguel.ruiz@gmail.com", new DateTime(1992, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, "Miguel", "3517766554" }
+                    { 1, "Peresin", "San Roque 1932", "46041117", false, new DateTime(2004, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, "Lautaro", "3498404954" },
+                    { 2, "Perez", "Independencia", "12345678", false, new DateTime(1999, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, "Juan", "3498459821" },
+                    { 3, "Gomez", "Belgrano 123", "87654321", false, new DateTime(1987, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, "Maria", "3512367890" },
+                    { 4, "Lopez", "Mitre 456", "45678912", false, new DateTime(1975, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 3, "Carlos", "3517896543" },
+                    { 5, "Martinez", "Rivadavia 789", "11223344", false, new DateTime(1990, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, "Ana", "3541556789" },
+                    { 6, "Fernandez", "San Martin 101", "33445566", false, new DateTime(1982, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, "Luis", "3519987654" },
+                    { 7, "Diaz", "Sarmiento 234", "55667788", false, new DateTime(1995, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4, "Sofia", "3511122334" },
+                    { 8, "Sanchez", "Lavalle 432", "22334455", false, new DateTime(1979, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 3, "Jorge", "3516677889" },
+                    { 9, "Mendez", "Alsina 567", "99887766", false, new DateTime(1988, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, "Laura", "3513344556" },
+                    { 10, "Ruiz", "Peron 890", "44556677", false, new DateTime(1992, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, "Miguel", "3517766554" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -262,11 +252,6 @@ namespace ClinicaBackend.Migrations
                 name: "IX_Pacientes_MutualId",
                 table: "Pacientes",
                 column: "MutualId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Turnos_MedicoDerivanteId",
-                table: "Turnos",
-                column: "MedicoDerivanteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Turnos_MedicoEfectorId",

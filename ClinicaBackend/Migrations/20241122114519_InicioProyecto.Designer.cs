@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaBackend.Migrations
 {
     [DbContext(typeof(ClinicaContext))]
-    [Migration("20241118145134_EliminacionEmail")]
-    partial class EliminacionEmail
+    [Migration("20241122114519_InicioProyecto")]
+    partial class InicioProyecto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,9 +99,6 @@ namespace ClinicaBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Matricula")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -124,7 +121,6 @@ namespace ClinicaBackend.Migrations
                             Id = 1,
                             Apellido = "Perez",
                             Eliminado = false,
-                            Matricula = "1234",
                             Nombre = "Juan",
                             Tecnica = 2,
                             Telefono = "3498123465"
@@ -134,7 +130,6 @@ namespace ClinicaBackend.Migrations
                             Id = 2,
                             Apellido = "Gomez",
                             Eliminado = false,
-                            Matricula = "5678",
                             Nombre = "Maria",
                             Tecnica = 1,
                             Telefono = "3498456754"
@@ -144,7 +139,6 @@ namespace ClinicaBackend.Migrations
                             Id = 3,
                             Apellido = "Gonzalez",
                             Eliminado = false,
-                            Matricula = "9876",
                             Nombre = "Carlos",
                             Tecnica = 3,
                             Telefono = "3498564532"
@@ -599,13 +593,10 @@ namespace ClinicaBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<DateTime?>("FechaConsulta")
+                    b.Property<DateTime?>("FechaTurno")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int?>("FormaPago")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MedicoDerivanteId")
                         .HasColumnType("int");
 
                     b.Property<int?>("MedicoEfectorId")
@@ -621,8 +612,6 @@ namespace ClinicaBackend.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MedicoDerivanteId");
 
                     b.HasIndex("MedicoEfectorId");
 
@@ -652,10 +641,6 @@ namespace ClinicaBackend.Migrations
 
             modelBuilder.Entity("ClinicaServices.Models.Turno", b =>
                 {
-                    b.HasOne("ClinicaServices.Models.Medico", "MedicoDerivante")
-                        .WithMany()
-                        .HasForeignKey("MedicoDerivanteId");
-
                     b.HasOne("ClinicaServices.Models.Medico", "MedicoEfector")
                         .WithMany()
                         .HasForeignKey("MedicoEfectorId");
@@ -667,8 +652,6 @@ namespace ClinicaBackend.Migrations
                     b.HasOne("ClinicaServices.Models.Practica", "Practica")
                         .WithMany()
                         .HasForeignKey("PracticaId");
-
-                    b.Navigation("MedicoDerivante");
 
                     b.Navigation("MedicoEfector");
 
