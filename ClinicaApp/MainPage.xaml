@@ -23,7 +23,7 @@
                 SemanticProperties.HeadingLevel="Level2" />
 
             <Label
-                Text="Instituto Superior de Profesorado N°20"
+                Text="Instituto Superior de Profesorado Nº20 'Senador Nestor J. Zamaro'"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
         </VerticalStackLayout>

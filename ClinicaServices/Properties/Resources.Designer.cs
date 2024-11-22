@@ -61,7 +61,7 @@ namespace ClinicaServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a false.
+        ///   Busca una cadena traducida similar a true.
         /// </summary>
         internal static string Remoto {
             get {
@@ -70,7 +70,7 @@ namespace ClinicaServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://clinica.azurewebsites.net/api/.
+        ///   Busca una cadena traducida similar a https://dataclinica.azurewebsites.net/api/.
         /// </summary>
         internal static string UrlApi {
             get {
@@ -79,7 +79,7 @@ namespace ClinicaServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://localhost:7133/api.
+        ///   Busca una cadena traducida similar a https://localhost:7133/api/.
         /// </summary>
         internal static string UrlApiLocal {
             get {

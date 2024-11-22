@@ -31,14 +31,16 @@
         <ShellContent
             Title="Inicio"
             ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="hogar.png"
             Route="MainPage" />
 
         <ShellContent
             Title="Nuevo turno"
             ContentTemplate="{DataTemplate views:NuevoTurnoView}"
+            Icon="agregar_turno.png"
             Route="NuevoTurno" />
 
-        <Tab Title="Pacientes" Route="Pacientes">
+        <Tab Title="Pacientes" Route="Pacientes" Icon="pacientes.png">
             <ShellContent
                 Title="Lista"
                 ContentTemplate="{DataTemplate views:PacientesView}"
@@ -51,7 +53,8 @@
         </Tab>
     </FlyoutItem>
     <MenuItem Text="Cerrar sesión"
-              Command="{Binding LogoutCommand}"/>
+              Command="{Binding LogoutCommand}"
+              IconImageSource="cerrar_sesion.png"/>
     <ShellContent
              Title="Iniciar sesión"
              ContentTemplate="{DataTemplate views:IniciarSesionView}"

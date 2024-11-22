@@ -25,32 +25,27 @@ namespace ClinicaDesktop.Views
         {
             InitializeComponent();
             dataGridCaja.DataSource = bsTurnos;
-            ObtenerLista();
-        }
-
-        private async void ObtenerLista()
-        {
-            try
-            {
-                ShowInActivity.Show();
-
-                listaTurnosAtendidos = await turnoService.GetTurnosAtendidos();
-
-                ShowInActivity.Hide();
-
-                await CargarGrilla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al obtener listas: {ex.Message}");
-            }
+            CargarGrilla();
         }
 
         public async Task CargarGrilla()
         {
             try
             {
-                bsTurnos.DataSource = listaTurnosAtendidos.Where(t => t.FechaTurno == DateTime.Today);
+                listaTurnosAtendidos = await turnoService.GetTurnosAtendidos();
+
+                var turnosAtendidosDelDia = listaTurnosAtendidos.Where(t => t.FechaTurno.Value.Date == DateTime.Today);
+
+                if (turnosAtendidosDelDia.Any())
+                {
+                    lblNoTurnos.Visible = false;
+                    bsTurnos.DataSource = turnosAtendidosDelDia;
+                }
+                else
+                {
+                    lblNoTurnos.Visible = true;
+                    bsTurnos.DataSource = new List<Turno>();
+                }
 
                 AjustarGrilla();
                 CalcularTotalCoseguro();
@@ -108,6 +103,12 @@ namespace ClinicaDesktop.Views
         private async void btnQuitar_Click(object sender, EventArgs e)
         {
             turnoSeleccioando = (Turno)bsTurnos.Current;
+
+            if (turnoSeleccioando == null)
+            {
+                MessageBox.Show("Debe seleccionar un turno para eliminar.", "Error al eliminar el turno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {

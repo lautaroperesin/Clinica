@@ -30,34 +30,37 @@
         {
             menuStrip1 = new MenuStrip();
             iconMenuPrincipal = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuSalir = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuCaja = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuTurnos = new FontAwesome.Sharp.IconMenuItem();
             iconMenuPacientes = new FontAwesome.Sharp.IconMenuItem();
             iconMenuMedicos = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuTurnos = new FontAwesome.Sharp.IconMenuItem();
             iconMenuPracticas = new FontAwesome.Sharp.IconMenuItem();
             iconMenuMutuales = new FontAwesome.Sharp.IconMenuItem();
             iconMenuLocalidades = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuCaja = new FontAwesome.Sharp.IconMenuItem();
             iconMenuListados = new FontAwesome.Sharp.IconMenuItem();
             iconMenuListadoPacientes = new FontAwesome.Sharp.IconMenuItem();
+            toolStrip1 = new ToolStrip();
+            iconToolHistoricoTurnos = new FontAwesome.Sharp.IconToolStripButton();
             menuStrip1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.BackColor = Color.LightBlue;
-            menuStrip1.Dock = DockStyle.None;
             menuStrip1.Font = new Font("Segoe UI", 12F);
             menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuCaja, iconMenuTurnos, iconMenuPacientes, iconMenuMedicos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuListados });
             menuStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(949, 33);
+            menuStrip1.Size = new Size(1156, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // iconMenuPrincipal
             // 
+            iconMenuPrincipal.DropDownItems.AddRange(new ToolStripItem[] { iconMenuSalir });
             iconMenuPrincipal.Font = new Font("Segoe UI", 10F);
             iconMenuPrincipal.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             iconMenuPrincipal.IconColor = Color.Black;
@@ -67,7 +70,41 @@
             iconMenuPrincipal.Name = "iconMenuPrincipal";
             iconMenuPrincipal.Size = new Size(97, 29);
             iconMenuPrincipal.Text = "Principal";
-            iconMenuPrincipal.Click += iconMenuPrincipal_Click;
+            // 
+            // iconMenuSalir
+            // 
+            iconMenuSalir.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            iconMenuSalir.IconColor = Color.Black;
+            iconMenuSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuSalir.IconSize = 20;
+            iconMenuSalir.Name = "iconMenuSalir";
+            iconMenuSalir.Size = new Size(103, 24);
+            iconMenuSalir.Text = "Salir";
+            iconMenuSalir.Click += iconMenuSalir_Click;
+            // 
+            // iconMenuCaja
+            // 
+            iconMenuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            iconMenuCaja.IconColor = Color.Black;
+            iconMenuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuCaja.IconSize = 25;
+            iconMenuCaja.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuCaja.Name = "iconMenuCaja";
+            iconMenuCaja.Size = new Size(77, 29);
+            iconMenuCaja.Text = "Caja";
+            iconMenuCaja.Click += iconMenuCaja_Click;
+            // 
+            // iconMenuTurnos
+            // 
+            iconMenuTurnos.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
+            iconMenuTurnos.IconColor = Color.Black;
+            iconMenuTurnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuTurnos.IconSize = 25;
+            iconMenuTurnos.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuTurnos.Name = "iconMenuTurnos";
+            iconMenuTurnos.Size = new Size(95, 29);
+            iconMenuTurnos.Text = "Turnos";
+            iconMenuTurnos.Click += iconMenuTurnos_Click;
             // 
             // iconMenuPacientes
             // 
@@ -92,18 +129,6 @@
             iconMenuMedicos.Size = new Size(105, 29);
             iconMenuMedicos.Text = "Médicos";
             iconMenuMedicos.Click += iconMenuMedicos_Click;
-            // 
-            // iconMenuTurnos
-            // 
-            iconMenuTurnos.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
-            iconMenuTurnos.IconColor = Color.Black;
-            iconMenuTurnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuTurnos.IconSize = 25;
-            iconMenuTurnos.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuTurnos.Name = "iconMenuTurnos";
-            iconMenuTurnos.Size = new Size(95, 29);
-            iconMenuTurnos.Text = "Turnos";
-            iconMenuTurnos.Click += iconMenuTurnos_Click;
             // 
             // iconMenuPracticas
             // 
@@ -141,18 +166,6 @@
             iconMenuLocalidades.Text = "Localidades";
             iconMenuLocalidades.Click += iconMenuLocalidades_Click;
             // 
-            // iconMenuCaja
-            // 
-            iconMenuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
-            iconMenuCaja.IconColor = Color.Black;
-            iconMenuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuCaja.IconSize = 25;
-            iconMenuCaja.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuCaja.Name = "iconMenuCaja";
-            iconMenuCaja.Size = new Size(77, 29);
-            iconMenuCaja.Text = "Caja";
-            iconMenuCaja.Click += iconMenuCaja_Click;
-            // 
             // iconMenuListados
             // 
             iconMenuListados.DropDownItems.AddRange(new ToolStripItem[] { iconMenuListadoPacientes });
@@ -173,16 +186,42 @@
             iconMenuListadoPacientes.IconSize = 20;
             iconMenuListadoPacientes.ImageScaling = ToolStripItemImageScaling.None;
             iconMenuListadoPacientes.Name = "iconMenuListadoPacientes";
-            iconMenuListadoPacientes.Size = new Size(184, 26);
+            iconMenuListadoPacientes.Size = new Size(148, 26);
             iconMenuListadoPacientes.Text = "Pacientes";
             iconMenuListadoPacientes.Click += iconMenuListadoPacientes_Click;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.BackColor = Color.DarkTurquoise;
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { iconToolHistoricoTurnos });
+            toolStrip1.Location = new Point(0, 33);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1156, 32);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // iconToolHistoricoTurnos
+            // 
+            iconToolHistoricoTurnos.IconChar = FontAwesome.Sharp.IconChar.Print;
+            iconToolHistoricoTurnos.IconColor = Color.Black;
+            iconToolHistoricoTurnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconToolHistoricoTurnos.IconSize = 25;
+            iconToolHistoricoTurnos.ImageScaling = ToolStripItemImageScaling.None;
+            iconToolHistoricoTurnos.ImageTransparentColor = Color.Magenta;
+            iconToolHistoricoTurnos.Name = "iconToolHistoricoTurnos";
+            iconToolHistoricoTurnos.Size = new Size(121, 29);
+            iconToolHistoricoTurnos.Text = "Historico turnos";
+            iconToolHistoricoTurnos.ToolTipText = "Historico turnos";
+            iconToolHistoricoTurnos.Click += iconToolHistoricoTurnos_Click;
             // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(1016, 450);
+            ClientSize = new Size(1156, 472);
+            Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
@@ -192,6 +231,8 @@
             WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,5 +250,8 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuCaja;
         private FontAwesome.Sharp.IconMenuItem iconMenuListados;
         private FontAwesome.Sharp.IconMenuItem iconMenuListadoPacientes;
+        private FontAwesome.Sharp.IconMenuItem iconMenuSalir;
+        private ToolStrip toolStrip1;
+        private FontAwesome.Sharp.IconToolStripButton iconToolHistoricoTurnos;
     }
 }

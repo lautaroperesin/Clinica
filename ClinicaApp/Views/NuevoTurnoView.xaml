@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ClinicaApp.ViewModels"
              x:Class="ClinicaApp.Views.NuevoTurnoView"
-             Title="NuevoTurnoView">
+             Title="Agendar turno">
     <ContentPage.BindingContext>
         <viewModels:NuevoTurnoViewModel/>
     </ContentPage.BindingContext>
@@ -11,47 +11,55 @@
         <StackLayout Spacing="15">
 
             <!-- Picker de Paciente -->
-            <Picker 
-            Title="Seleccionar Paciente" 
-            ItemsSource="{Binding ListaPacientes}"
-            ItemDisplayBinding="{Binding NombreCompleto}"
-            SelectedItem="{Binding PacienteSeleccionado}"
-            BackgroundColor="White"
-            TextColor="Black"
-            Margin="0,10"
-            />
+            <Frame Padding="0" BorderColor="Gray" BackgroundColor="White" CornerRadius="10">
+                <Picker 
+                Title="Seleccionar Paciente" 
+                ItemsSource="{Binding ListaPacientes}"
+                ItemDisplayBinding="{Binding NombreCompleto}"
+                SelectedItem="{Binding PacienteSeleccionado}"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                HeightRequest="50"
+                />
+            </Frame>
 
             <!-- Picker de Médico -->
-            <Picker 
-            Title="Seleccionar Médico"
-            ItemsSource="{Binding ListaMedicos}"
-            ItemDisplayBinding="{Binding NombreCompleto}"
-            SelectedItem="{Binding MedicoSeleccionado}"
-            BackgroundColor="White"
-            TextColor="Black"
-            Margin="0,10"
-            />
+            <Frame Padding="0" BorderColor="Gray" BackgroundColor="White" CornerRadius="10">
+                <Picker 
+                Title="Seleccionar Médico"
+                ItemsSource="{Binding ListaMedicos}"
+                ItemDisplayBinding="{Binding NombreCompleto}"
+                SelectedItem="{Binding MedicoSeleccionado}"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                HeightRequest="50"
+                />
+            </Frame>
 
             <!-- Picker de Técnica -->
-            <Picker 
-            Title="Seleccionar Técnica"
-            ItemsSource="{Binding Tecnicas}"
-            SelectedItem="{Binding Tecnica}"
-            BackgroundColor="White"
-            TextColor="Black"
-            Margin="0,10"
-            />
+            <Frame Padding="0" BorderColor="Gray" BackgroundColor="White" CornerRadius="10">
+                <Picker 
+                Title="Seleccionar Técnica"
+                ItemsSource="{Binding Tecnicas}"
+                SelectedItem="{Binding Tecnica}"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                HeightRequest="50"
+                />
+            </Frame>
 
             <!-- Picker de Práctica -->
-            <Picker 
-            Title="Seleccionar Práctica"
-            ItemsSource="{Binding ListaPracticas}"
-            ItemDisplayBinding="{Binding Nombre}"
-            SelectedItem="{Binding PracticaSeleccionada}"
-            BackgroundColor="White"
-            TextColor="Black"
-            Margin="0,10"
-            />
+            <Frame Padding="0" BorderColor="Gray" BackgroundColor="White" CornerRadius="10">
+                <Picker 
+                Title="Seleccionar Práctica"
+                ItemsSource="{Binding ListaPracticasFiltradas}"
+                ItemDisplayBinding="{Binding Nombre}"
+                SelectedItem="{Binding PracticaSeleccionada}"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                HeightRequest="50"
+                />
+            </Frame>
 
             <!-- Label y DatePicker de Fecha -->
             <Label Text="Fecha del Turno"
@@ -63,18 +71,21 @@
             Date="{Binding FechaTurno}" 
             BackgroundColor="White"
             TextColor="Black"
+            HeightRequest="50"
             Margin="0,10"
             />
 
             <!-- Picker de Horario -->
-            <Picker 
-            Title="Seleccionar Horario"
-            ItemsSource="{Binding HorariosDisponibles}"
-            SelectedItem="{Binding HorarioSeleccionado}"
-            BackgroundColor="White"
-            TextColor="Black"
-            Margin="0,10"
-            />
+            <Frame Padding="0" BorderColor="Gray" BackgroundColor="White" CornerRadius="10">
+                <Picker 
+                Title="Seleccionar Horario"
+                ItemsSource="{Binding HorariosDisponibles}"
+                SelectedItem="{Binding HorarioSeleccionado}"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                HeightRequest="50"
+                />
+            </Frame>
 
             <!-- Botón Registrar Turno -->
             <Button 

@@ -33,7 +33,7 @@ namespace ClinicaDesktop.Views
             ObtenerListas();
             dtpFechaTurno.ValueChanged -= dtpFechaTurno_ValueChanged;
             dtpFechaTurno.Value = DateTime.Today;
-            dtpFechaTurno.ValueChanged += dtpFechaTurno_ValueChanged;
+            dtpFechaTurno.ValueChanged += dtpFechaTurno_ValueChanged;   
         }
 
         private async void ObtenerListas()
@@ -147,7 +147,8 @@ namespace ClinicaDesktop.Views
         private void AjustarGrilla()
         {
             dataGridTurnos.Columns["MedicoEfector"].HeaderText = "Médico Efector";
-            dataGridTurnos.Columns["FechaTurno"].HeaderText = "Fecha";
+            dataGridTurnos.Columns["FechaTurno"].HeaderText = "Horario";
+            dataGridTurnos.Columns["FechaTurno"].DefaultCellStyle.Format = "HH:mm";
 
             dataGridTurnos.Columns["Id"].Visible = false;
             dataGridTurnos.Columns["MedicoEfectorId"].Visible = false;

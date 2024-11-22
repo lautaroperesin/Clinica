@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:viewModels="clr-namespace:ClinicaApp.ViewModels"
              x:Class="ClinicaApp.Views.AgregarEditarPacienteView"
-             Title="NuevoPaciente">
+             Title="Paciente">
     <ContentPage.BindingContext>
         <viewModels:AgregarEditarPacienteViewModel/>
     </ContentPage.BindingContext>
@@ -24,75 +24,81 @@
             Margin="0,10" />
 
             <!-- Nombre -->
-            <Entry 
-            Placeholder="Nombre"
-            Text="{Binding Nombre}" 
-            BackgroundColor="White"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Entry 
+                Placeholder="Nombre"
+                Text="{Binding Nombre}" 
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Apellido -->
-            <Entry 
-            Placeholder="Apellido"
-            Text="{Binding Apellido}" 
-            BackgroundColor="White"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Entry 
+                Placeholder="Apellido"
+                Text="{Binding Apellido}" 
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Dirección -->
-            <Entry 
-            Placeholder="Dirección"
-            Text="{Binding Direccion}" 
-            BackgroundColor="White"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Entry 
+                Placeholder="Dirección"
+                Text="{Binding Direccion}" 
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Teléfono -->
-            <Entry 
-            Placeholder="Teléfono"
-            Text="{Binding Telefono}" 
-            Keyboard="Telephone"
-            BackgroundColor="White"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Entry 
+                Placeholder="Teléfono"
+                Text="{Binding Telefono}" 
+                Keyboard="Telephone"
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Fecha de Nacimiento -->
-            <DatePicker 
-            Date="{Binding FechaNacimiento}"
-            TextColor="Black"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <DatePicker 
+                Date="{Binding FechaNacimiento}" 
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Documento -->
-            <Entry 
-            Placeholder="Documento (DNI)"
-            Text="{Binding Documento}" 
-            Keyboard="Numeric"
-            BackgroundColor="White"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Entry 
+                Placeholder="Documento (DNI)"
+                Text="{Binding Documento}" 
+                Keyboard="Numeric"
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Mutual -->
-            <Picker 
-            Title="Seleccione una mutual"
-            ItemsSource="{Binding ListaMutuales}" 
-            ItemDisplayBinding="{Binding Nombre}" 
-            SelectedItem="{Binding MutualSeleccionada, Mode=TwoWay}"
-            TextColor="Black"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Picker 
+                Title="Seleccione una mutual"
+                ItemsSource="{Binding ListaMutuales}" 
+                ItemDisplayBinding="{Binding Nombre}" 
+                SelectedItem="{Binding MutualSeleccionada, Mode=TwoWay}"
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Localidad -->
-            <Picker 
-            Title="Seleccione una localidad"
-            ItemsSource="{Binding ListaLocalidades}" 
-            ItemDisplayBinding="{Binding Nombre}" 
-            SelectedItem="{Binding LocalidadSeleccionada, Mode=TwoWay}"
-            TextColor="Black"
-            Margin="0,0,0,10" />
+            <Frame CornerRadius="10" Padding="5" BackgroundColor="White" HasShadow="True">
+                <Picker 
+                Title="Seleccione una localidad"
+                ItemsSource="{Binding ListaLocalidades}" 
+                ItemDisplayBinding="{Binding Nombre}" 
+                SelectedItem="{Binding LocalidadSeleccionada, Mode=TwoWay}"
+                TextColor="Black"
+                BackgroundColor="Transparent" />
+            </Frame>
 
             <!-- Botones de Acción -->
             <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
@@ -102,7 +108,7 @@
                 Command="{Binding GuardarPacienteCommand}"
                 BackgroundColor="Teal"
                 TextColor="White"
-                CornerRadius="10"
+                CornerRadius="25"
                 WidthRequest="150"
                 HeightRequest="50" />
 
@@ -112,7 +118,7 @@
                 Command="{Binding VolverCommand}"
                 BackgroundColor="#E0E0E0"
                 TextColor="Black"
-                CornerRadius="10"
+                CornerRadius="25"
                 WidthRequest="150"
                 HeightRequest="50" />
             </HorizontalStackLayout>

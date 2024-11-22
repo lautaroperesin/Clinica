@@ -21,8 +21,7 @@ namespace ClinicaApp.ViewModels
                 editarPaciente = value;
                 OnPropertyChanged();
                 // Si las listas ya están cargadas, llama a SettingData.
-                if (ListaMutuales != null && ListaMutuales.Any() &&
-                    ListaLocalidades != null && ListaLocalidades.Any())
+                if (ListaMutuales != null && ListaMutuales.Any() && ListaLocalidades != null && ListaLocalidades.Any())
                 {
                     SettingData();
                 }

@@ -194,6 +194,17 @@ namespace ClinicaApp.ViewModels
             }
         }
 
+        private ObservableCollection<Practica> listaPracticasFiltradas;
+        public ObservableCollection<Practica> ListaPracticasFiltradas
+        {
+            get => listaPracticasFiltradas;
+            set
+            {
+                listaPracticasFiltradas = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<DateTime> horariosDisponibles;
         public ObservableCollection<DateTime> HorariosDisponibles
         {
@@ -220,7 +231,7 @@ namespace ClinicaApp.ViewModels
 
         private async void CargarHorariosDisponibles()
         {
-            if (MedicoId != null && FechaTurno != default)
+            if (MedicoSeleccionado != null && FechaTurno != default)
             {
                 var horarios = await turnoService.GetHorariosDisponibles(MedicoSeleccionado, FechaTurno);
                 HorariosDisponibles = new ObservableCollection<DateTime>(horarios);
@@ -258,6 +269,9 @@ namespace ClinicaApp.ViewModels
 
                 var medicos = await medicoService.GetAllAsync();
                 ListaMedicos = new ObservableCollection<Medico>(medicos);
+
+                var practicas = await practicaService.GetAllAsync();
+                ListaPracticas = new ObservableCollection<Practica>(practicas);
             }
             catch (Exception ex)
             {
@@ -265,12 +279,12 @@ namespace ClinicaApp.ViewModels
             }
         }
 
-        private async void CargarPracticasPorTecnica()
+        private void CargarPracticasPorTecnica()
         {
             if (Tecnica != null)
             {
-                var practicas = await practicaService.GetPracticasPorTecnicaAsync((TecnicaEnum)Tecnica);
-                ListaPracticas = new ObservableCollection<Practica>(practicas);
+                var practicasFiltradas = ListaPracticas.Where(p => p.Tecnica == tecnica.Value).ToList();
+                ListaPracticasFiltradas = new ObservableCollection<Practica>(practicasFiltradas);
             }
         }
 

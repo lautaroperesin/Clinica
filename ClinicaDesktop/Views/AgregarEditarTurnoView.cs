@@ -40,6 +40,8 @@ namespace ClinicaDesktop.Views
             this.medicoActual = medico;
             this.fecha = fecha;
             this.turnoActual = turno;
+            dtpFechaTurno.Value = fecha;
+            txtMedico.Text = medico.NombreCompleto;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -49,8 +51,8 @@ namespace ClinicaDesktop.Views
                 turnoActual.PacienteId = (int)cboPacientes.SelectedValue;
                 turnoActual.PracticaId = (int)cboPracticas.SelectedValue;
                 turnoActual.Tecnica = (TecnicaEnum)cboTecnicas.SelectedValue;
-                //turnoActual.MedicoEfectorId = (int)cboMedicos.SelectedValue;
-                turnoActual.FechaTurno = dtpFechaTurno.Value;
+                turnoActual.MedicoEfectorId = medicoActual.Id;
+                turnoActual.FechaTurno = (DateTime)cboHorarios.SelectedValue;
             }
             else
             {
@@ -59,8 +61,8 @@ namespace ClinicaDesktop.Views
                     PacienteId = (int)cboPacientes.SelectedValue,
                     PracticaId = (int)cboPracticas.SelectedValue,
                     Tecnica = (TecnicaEnum)cboTecnicas.SelectedValue,
-                    //MedicoEfectorId = (int)cboMedicos.SelectedValue,
-                    FechaTurno = dtpFechaTurno.Value
+                    MedicoEfectorId = medicoActual.Id,
+                    FechaTurno = (DateTime)cboHorarios.SelectedValue
                 };
             }
 
@@ -86,14 +88,10 @@ namespace ClinicaDesktop.Views
             cboPacientes.DataSource = await pacienteService.GetAllAsync();
             cboPacientes.DisplayMember = "NombreCompleto";
             cboPacientes.ValueMember = "Id";
-
-            //cboPracticas.DataSource = await practicaService.GetAllAsync();
-            //cboPracticas.DisplayMember = "Nombre";
-            //cboPracticas.ValueMember = "Id";
              
             var horariosDisponibles = await turnoService.GetHorariosDisponibles(medico, fecha);
             cboHorarios.DataSource = horariosDisponibles;
-
+            cboHorarios.FormatString = "HH:mm";
 
             if (turno == null)
             {
@@ -107,7 +105,7 @@ namespace ClinicaDesktop.Views
                 cboTecnicas.SelectedItem = turno.Tecnica;
                 cboPacientes.SelectedValue = turno.PacienteId;
                 cboPracticas.SelectedValue = turno.PracticaId;
-                cboHorarios.SelectedValue = turno.FechaTurno.Value;
+                cboHorarios.SelectedItem = turno.FechaTurno.Value;
             }
         }
 

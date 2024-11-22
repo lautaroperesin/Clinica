@@ -38,7 +38,6 @@ namespace ClinicaApp.ViewModels
         }
 
         private ObservableCollection<Paciente> pacientes;
-
         public ObservableCollection<Paciente> Pacientes
         {
             get { return pacientes; }
@@ -60,6 +59,7 @@ namespace ClinicaApp.ViewModels
                 pacienteSeleccionado = value;
                 OnPropertyChanged();
                 EditarPacienteCommand.ChangeCanExecute();
+                EliminarPacienteCommand.ChangeCanExecute();
             }
         }
 
@@ -67,6 +67,7 @@ namespace ClinicaApp.ViewModels
         public Command FiltrarPacientesCommand { get; }
         public Command AgregarPacienteCommand { get; }
         public Command EditarPacienteCommand { get; }
+        public Command EliminarPacienteCommand { get; }
 
         public PacientesViewModel()
         {
@@ -74,6 +75,7 @@ namespace ClinicaApp.ViewModels
             FiltrarPacientesCommand = new Command(async () => await FiltrarPacientes());
             AgregarPacienteCommand = new Command(async () => await AgregarPaciente());
             EditarPacienteCommand = new Command(async (obj) => await EditarPaciente(), HabilitarEdicion);
+            EliminarPacienteCommand = new Command(async (obj) => await EliminarPaciente(), HabilitarEdicion);
             ObtenerPacientes();
         }
 
@@ -89,6 +91,17 @@ namespace ClinicaApp.ViewModels
                 { "PacienteAEditar", PacienteSeleccionado }
             };
             await Shell.Current.GoToAsync($"//AgregarEditarPaciente", navigationParameter);
+        }
+
+        private async Task EliminarPaciente()
+        {
+            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Paciente", "¿Está seguro que desea eliminar el paciente?", "Si", "No");
+            if (confirmacion)
+            {
+                await pacienteService.DeleteAsync(PacienteSeleccionado.Id);
+                PacienteSeleccionado = null;
+                await ObtenerPacientes();
+            }
         }
 
         private async Task AgregarPaciente()

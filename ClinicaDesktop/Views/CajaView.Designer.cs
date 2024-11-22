@@ -37,6 +37,7 @@
             btnQuitar = new Button();
             lblFecha = new Label();
             dtpDiaActual = new DateTimePicker();
+            lblNoTurnos = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridCaja).BeginInit();
             SuspendLayout();
             // 
@@ -135,12 +136,25 @@
             dtpDiaActual.Size = new Size(113, 29);
             dtpDiaActual.TabIndex = 9;
             // 
+            // lblNoTurnos
+            // 
+            lblNoTurnos.Anchor = AnchorStyles.None;
+            lblNoTurnos.AutoSize = true;
+            lblNoTurnos.BackColor = Color.White;
+            lblNoTurnos.Font = new Font("Segoe UI", 12F);
+            lblNoTurnos.Location = new Point(370, 245);
+            lblNoTurnos.Name = "lblNoTurnos";
+            lblNoTurnos.Size = new Size(329, 21);
+            lblNoTurnos.TabIndex = 10;
+            lblNoTurnos.Text = "NO HAY TURNOS ATENDIDOS EL DIA DE HOY";
+            // 
             // CajaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(1038, 588);
+            Controls.Add(lblNoTurnos);
             Controls.Add(dtpDiaActual);
             Controls.Add(lblFecha);
             Controls.Add(btnQuitar);
@@ -165,5 +179,6 @@
         private Button btnQuitar;
         private Label lblFecha;
         private DateTimePicker dtpDiaActual;
+        private Label lblNoTurnos;
     }
 }

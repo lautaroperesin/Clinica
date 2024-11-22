@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ClinicaApp.ViewModels"
              x:Class="ClinicaApp.Views.PacientesView"
-             Title="PacientesView">
+             Title="Pacientes">
     <ContentPage.BindingContext>
         <viewModels:PacientesViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="10" BackgroundColor="#F9F9F9">
+    <Grid RowDefinitions="Auto, *, Auto, Auto, Auto" Padding="10" BackgroundColor="#F9F9F9">
 
         <!-- Barra de búsqueda -->
         <Entry 
@@ -38,7 +38,8 @@
                         Margin="5,5,5,0"
                         CornerRadius="10"
                         HasShadow="True"
-                        BackgroundColor="#E3F2FD">
+                        BackgroundColor="#E3F2FD"
+                        InputTransparent="True">
                             <HorizontalStackLayout Spacing="15">
                                 <Label 
                                 Text="{Binding NombreCompleto}" 
@@ -60,7 +61,7 @@
 
         <!-- Botón agregar paciente -->
         <Button 
-        Text="Agregar paciente"
+        Text="Agregar"
         Command="{Binding AgregarPacienteCommand}"
         BackgroundColor="Teal"
         TextColor="White"
@@ -72,7 +73,7 @@
 
         <!-- Botón editar paciente -->
         <Button 
-        Text="Editar paciente"
+        Text="Editar"
         Command="{Binding EditarPacienteCommand}"
         BackgroundColor="#E0E0E0"
         TextColor="Black"
@@ -82,5 +83,16 @@
         VerticalOptions="Center"
         Grid.Row="3" />
 
+        <!-- Botón elminar paciente -->
+        <Button
+        Text="Eliminar"
+        Command="{Binding EliminarPacienteCommand}"
+        BackgroundColor="#ee1d1d"
+        TextColor="Black"
+        CornerRadius="10"
+        HeightRequest="50"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        Grid.Row="4" />
     </Grid>
 </ContentPage>

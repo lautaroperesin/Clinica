@@ -46,11 +46,6 @@ namespace ClinicaDesktop
             practicasView.ShowDialog();
         }
 
-        private void iconMenuPrincipal_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void iconMenuCaja_Click(object sender, EventArgs e)
         {
             CajaView cajaView = new CajaView();
@@ -61,6 +56,25 @@ namespace ClinicaDesktop
         {
             PacientesViewReport pacientesViewReport = new PacientesViewReport();
             pacientesViewReport.ShowDialog();
+        }
+
+        private void iconMenuSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro de que quiere cerrar el sistema?",
+                                       "Confirmar cierre",
+                                       MessageBoxButtons.YesNo,
+                                       MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void iconToolHistoricoTurnos_Click(object sender, EventArgs e)
+        {
+            HistoricoTurnosView historicoTurnosView = new HistoricoTurnosView();
+            historicoTurnosView.ShowDialog();
         }
     }
 }
