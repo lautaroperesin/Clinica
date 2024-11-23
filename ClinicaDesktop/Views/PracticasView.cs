@@ -34,7 +34,10 @@ namespace ClinicaDesktop.Views
             {
                 bsPracticas.DataSource = await practicaService.GetAllAsync();
                 listaPracticas = (List<Practica>)bsPracticas.DataSource;
+
+                dataGridPracticas.Columns["Id"].Visible = false;
                 dataGridPracticas.Columns["Eliminado"].Visible = false;
+
                 VerificarElementosEnDataGrid();
             }
             catch (Exception ex)

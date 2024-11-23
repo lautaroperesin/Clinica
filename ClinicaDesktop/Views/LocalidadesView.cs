@@ -32,6 +32,7 @@ namespace ClinicaDesktop.Views
             bsLocalidades.DataSource = await localidadService.GetAllAsync();
             listaLocalidades = (List<Localidad>)bsLocalidades.DataSource;
 
+            dataGridLocalidades.Columns["Id"].Visible = false;
             dataGridLocalidades.Columns["Eliminado"].Visible = false;
             VerificarElementosEnDataGrid();
         }

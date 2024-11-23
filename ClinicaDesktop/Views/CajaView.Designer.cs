@@ -38,6 +38,7 @@
             lblFecha = new Label();
             dtpDiaActual = new DateTimePicker();
             lblNoTurnos = new Label();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridCaja).BeginInit();
             SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             btnQuitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnQuitar.BackColor = Color.LightBlue;
             btnQuitar.Font = new Font("Segoe UI", 12F);
-            btnQuitar.Location = new Point(12, 525);
+            btnQuitar.Location = new Point(205, 527);
             btnQuitar.Name = "btnQuitar";
             btnQuitar.Size = new Size(178, 35);
             btnQuitar.TabIndex = 7;
@@ -148,12 +149,26 @@
             lblNoTurnos.TabIndex = 10;
             lblNoTurnos.Text = "NO HAY TURNOS ATENDIDOS EL DIA DE HOY";
             // 
+            // btnVolver
+            // 
+            btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnVolver.BackColor = Color.LightBlue;
+            btnVolver.Font = new Font("Segoe UI", 12F);
+            btnVolver.Location = new Point(12, 527);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(178, 35);
+            btnVolver.TabIndex = 11;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // CajaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(1038, 588);
+            Controls.Add(btnVolver);
             Controls.Add(lblNoTurnos);
             Controls.Add(dtpDiaActual);
             Controls.Add(lblFecha);
@@ -180,5 +195,6 @@
         private Label lblFecha;
         private DateTimePicker dtpDiaActual;
         private Label lblNoTurnos;
+        private Button btnVolver;
     }
 }

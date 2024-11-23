@@ -38,6 +38,7 @@
             Name = "HistoricoTurnosViewReport";
             Text = "HistoricoTurnosViewReport";
             WindowState = FormWindowState.Maximized;
+            Load += HistoricoTurnosViewReport_Load;
             ResumeLayout(false);
         }
 

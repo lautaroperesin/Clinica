@@ -33,6 +33,7 @@ namespace ClinicaDesktop.Views
                 bsMutuales.DataSource = await mutualService.GetAllAsync();
                 listaMutuales = (List<Mutual>)bsMutuales.DataSource;
 
+                dataGridMutuales.Columns["Id"].Visible = false;
                 dataGridMutuales.Columns["Eliminado"].Visible = false;
                 VerificarElementosEnDataGrid();
             }

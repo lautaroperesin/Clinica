@@ -28,19 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             dataGridTurnos = new DataGridView();
             checkFiltrado = new CheckBox();
             panelFiltrado = new Panel();
+            btnFiltrar = new Button();
             dtpHasta = new DateTimePicker();
             dtpDesde = new DateTimePicker();
             label3 = new Label();
             label2 = new Label();
-            btnFiltrar = new Button();
+            lblNoResultados = new Label();
+            label4 = new Label();
+            numericTotal = new NumericUpDown();
+            btnImprimir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridTurnos).BeginInit();
             panelFiltrado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericTotal).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -58,19 +63,19 @@
             // 
             dataGridTurnos.AllowUserToAddRows = false;
             dataGridTurnos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridTurnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridTurnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridTurnos.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTurnos.Location = new Point(-1, 136);
             dataGridTurnos.MultiSelect = false;
@@ -78,7 +83,7 @@
             dataGridTurnos.ReadOnly = true;
             dataGridTurnos.RowHeadersVisible = false;
             dataGridTurnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridTurnos.Size = new Size(964, 314);
+            dataGridTurnos.Size = new Size(964, 308);
             dataGridTurnos.TabIndex = 6;
             // 
             // checkFiltrado
@@ -107,6 +112,18 @@
             panelFiltrado.Name = "panelFiltrado";
             panelFiltrado.Size = new Size(863, 56);
             panelFiltrado.TabIndex = 8;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SkyBlue;
+            btnFiltrar.Font = new Font("Segoe UI", 12F);
+            btnFiltrar.Location = new Point(633, 13);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(141, 31);
+            btnFiltrar.TabIndex = 4;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // dtpHasta
             // 
@@ -146,23 +163,63 @@
             label2.TabIndex = 0;
             label2.Text = "Desde:";
             // 
-            // btnFiltrar
+            // lblNoResultados
             // 
-            btnFiltrar.Font = new Font("Segoe UI", 12F);
-            btnFiltrar.Location = new Point(633, 13);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(141, 31);
-            btnFiltrar.TabIndex = 4;
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            btnFiltrar.Click += btnFiltrar_Click;
+            lblNoResultados.Anchor = AnchorStyles.None;
+            lblNoResultados.AutoSize = true;
+            lblNoResultados.BackColor = Color.White;
+            lblNoResultados.Font = new Font("Segoe UI", 12F);
+            lblNoResultados.Location = new Point(382, 250);
+            lblNoResultados.Name = "lblNoResultados";
+            lblNoResultados.Size = new Size(273, 21);
+            lblNoResultados.TabIndex = 5;
+            lblNoResultados.Text = "NO SE ENCONTRARON RESULTADOS";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(745, 470);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 21);
+            label4.TabIndex = 9;
+            label4.Text = "TOTAL:";
+            // 
+            // numericTotal
+            // 
+            numericTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            numericTotal.Enabled = false;
+            numericTotal.Font = new Font("Segoe UI", 12F);
+            numericTotal.Location = new Point(807, 464);
+            numericTotal.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericTotal.Name = "numericTotal";
+            numericTotal.ReadOnly = true;
+            numericTotal.Size = new Size(120, 29);
+            numericTotal.TabIndex = 10;
+            // 
+            // btnImprimir
+            // 
+            btnImprimir.BackColor = Color.SkyBlue;
+            btnImprimir.Font = new Font("Segoe UI", 12F);
+            btnImprimir.Location = new Point(585, 455);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(141, 43);
+            btnImprimir.TabIndex = 5;
+            btnImprimir.Text = "Imprimir";
+            btnImprimir.UseVisualStyleBackColor = false;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // HistoricoTurnosView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(963, 494);
+            ClientSize = new Size(963, 505);
+            Controls.Add(btnImprimir);
+            Controls.Add(numericTotal);
+            Controls.Add(label4);
+            Controls.Add(lblNoResultados);
             Controls.Add(panelFiltrado);
             Controls.Add(checkFiltrado);
             Controls.Add(dataGridTurnos);
@@ -173,6 +230,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridTurnos).EndInit();
             panelFiltrado.ResumeLayout(false);
             panelFiltrado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericTotal).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,5 +246,9 @@
         private DateTimePicker dtpHasta;
         private DateTimePicker dtpDesde;
         private Button btnFiltrar;
+        private Label lblNoResultados;
+        private Label label4;
+        private NumericUpDown numericTotal;
+        private Button btnImprimir;
     }
 }

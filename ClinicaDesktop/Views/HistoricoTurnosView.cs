@@ -1,4 +1,5 @@
-﻿using ClinicaServices.Models;
+﻿using ClinicaDesktop.ViewReports;
+using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;
 using System.Collections.Generic;
@@ -27,18 +28,18 @@ namespace ClinicaDesktop.Views
         {
             turnos = await turnoService.GetTurnosAtendidos();
             DisplayDataGrid();
-            //CalcularTotal();
+            CalcularTotal();
         }
 
         private void CalcularTotal()
         {
             if (checkFiltrado.Checked)
             {
-                //numericTotalFacturado.Value = turnos.Where(t => t.FechaTurno >= dtpDesde.Value && t.FechaTurno <= dtpHasta.Value).Sum(t => t.Coseguro);
+                numericTotal.Value = (decimal)turnos.Where(t => t.FechaTurno >= dtpDesde.Value && t.FechaTurno <= dtpHasta.Value).Sum(t => t.Coseguro);
             }
             else
             {
-                //numericTotalFacturado.Value = ventas.Sum(venta => venta.Total);
+                numericTotal.Value = (decimal)turnos.Sum(t => t.Coseguro);
             }
         }
 
@@ -46,16 +47,6 @@ namespace ClinicaDesktop.Views
         {
             dataGridTurnos.DataSource = turnos;
             AjustarGrilla();
-        }
-
-        private void AjustarGrilla()
-        {
-            dataGridTurnos.Columns["Id"].Visible = false;
-            dataGridTurnos.Columns["PacienteId"].Visible = false;
-            dataGridTurnos.Columns["MedicoId"].Visible = false;
-            dataGridTurnos.Columns["Eliminado"].Visible = false;
-            dataGridTurnos.Columns["Atendido"].Visible = false;
-            dataGridTurnos.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         private void checkFiltrado_CheckedChanged(object sender, EventArgs e)
@@ -86,5 +77,45 @@ namespace ClinicaDesktop.Views
             DisplayFilterData();
             CalcularTotal();
         }
+
+        private void AjustarGrilla()
+        {
+            dataGridTurnos.Columns["FechaTurno"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridTurnos.Columns["FechaTurno"].HeaderText = "Fecha";
+            dataGridTurnos.Columns["MedicoEfector"].HeaderText = "Médico Efector";
+            dataGridTurnos.Columns["Practica"].HeaderText = "Práctica";
+            dataGridTurnos.Columns["Tecnica"].HeaderText = "Técnica";
+            dataGridTurnos.Columns["FormaPago"].HeaderText = "Forma de Pago";
+
+            dataGridTurnos.Columns["Id"].Visible = false;
+            dataGridTurnos.Columns["PacienteId"].Visible = false;
+            dataGridTurnos.Columns["PracticaId"].Visible = false;
+            dataGridTurnos.Columns["MedicoEfectorId"].Visible = false;
+            dataGridTurnos.Columns["Eliminado"].Visible = false;
+            dataGridTurnos.Columns["Atendido"].Visible = false;
+
+            if (dataGridTurnos.Rows.Count == 0)
+            {
+                lblNoResultados.Visible = true;
+            }
+            else
+            {
+                lblNoResultados.Visible = false;
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            var tituloReporte = "Listado de turnos";
+            var turnosAImprimir = turnos;
+            if(checkFiltrado.Checked)
+            {
+                turnosAImprimir = turnos.Where(turnos => turnos.FechaTurno >= dtpDesde.Value && turnos.FechaTurno <= dtpHasta.Value).ToList();
+                tituloReporte = $"Listado de turnos desde {dtpDesde.Value.ToShortDateString()} hasta {dtpHasta.Value.ToShortDateString()}";
+            }
+
+            var reporteHistoricoTurnos = new HistoricoTurnosViewReport(turnos, tituloReporte);
+            reporteHistoricoTurnos.ShowDialog();
+        } 
     }
 }

@@ -5,27 +5,42 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+        Padding="30,0"
+        Spacing="25">
             <Image
-                Source="logo_isp.png"
-                HeightRequest="185"
-                Aspect="AspectFit" />
+            Source="logo_isp.png"
+            HeightRequest="185"
+            Aspect="AspectFit" />
 
             <Label
-                Text="Practicas Profesionalizantes"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            Text="Prácticas Profesionalizantes"
+            Style="{StaticResource Headline}"
+            TextColor="Black"
+            SemanticProperties.HeadingLevel="Level1" />
+
+            <!-- Línea separadora -->
+            <BoxView
+            HeightRequest="1"
+            Color="Gray"
+            HorizontalOptions="FillAndExpand" />
 
             <Label
-                Text="Tecnicatura Superior en Desarrollo de Software"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
+            Text="Tecnicatura Superior en Desarrollo de Software"
+            Style="{StaticResource SubHeadline}"
+            TextColor="Black"
+            SemanticProperties.HeadingLevel="Level2" />
+
+            <!-- Línea separadora -->
+            <BoxView
+            HeightRequest="1"
+            Color="Gray"
+            HorizontalOptions="FillAndExpand" />
 
             <Label
-                Text="Instituto Superior de Profesorado Nº20 'Senador Nestor J. Zamaro'"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
+            Text="Instituto Superior de Profesorado Nº20 'Senador Néstor J. Zamaro'"
+            Style="{StaticResource SubHeadline}"
+            TextColor="Black"
+            SemanticProperties.HeadingLevel="Level2" />
         </VerticalStackLayout>
     </ScrollView>
 

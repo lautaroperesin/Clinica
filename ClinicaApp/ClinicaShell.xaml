@@ -9,8 +9,6 @@
     xmlns:contentviews="clr-namespace:ClinicaApp.ContentViews"
     FlyoutBehavior="Flyout"
     Title="ClinicaApp"
-    FlyoutBackgroundImage="photo.jpg"
-    FlyoutBackgroundImageAspect="AspectFill"
     FlyoutHeaderBehavior="CollapseOnScroll" BackgroundColor="#F0F0F0">
 
     <Shell.BindingContext>

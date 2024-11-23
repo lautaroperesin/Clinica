@@ -1,5 +1,4 @@
-﻿using ClinicaDesktop.Class;
-using ClinicaServices.Enums;
+﻿using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
 using System;

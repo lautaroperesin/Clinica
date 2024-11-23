@@ -1,16 +1,7 @@
-﻿using ClinicaDesktop.Class;
-using ClinicaServices.Enums;
+﻿using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ClinicaDesktop.Views
 {
@@ -40,12 +31,8 @@ namespace ClinicaDesktop.Views
         {
             try
             {
-                ShowInActivity.Show();
-
                 listaTurnos = await turnoService.GetAllAsync();
                 listaMedicos = await medicoService.GetAllAsync();
-
-                ShowInActivity.Hide();
 
                 CargarCombo();
             }

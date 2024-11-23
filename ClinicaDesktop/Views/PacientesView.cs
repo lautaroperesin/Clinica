@@ -1,15 +1,6 @@
-﻿using ClinicaDesktop.Class;
-using ClinicaServices.Models;
+﻿using ClinicaServices.Models;
 using ClinicaServices.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ClinicaDesktop.Views
 {
@@ -36,8 +27,6 @@ namespace ClinicaDesktop.Views
 
         private async void ObtenerListas()
         {
-            ShowInActivity.Show();
-
             var tareas = new List<Task>
             {
                 Task.Run(async () => listaPacientes = await pacienteService.GetAllAsync()),
@@ -46,8 +35,6 @@ namespace ClinicaDesktop.Views
             };
 
             await Task.WhenAll(tareas);
-
-            ShowInActivity.Hide();
 
             CargarCombos();
             await CargarGrilla();

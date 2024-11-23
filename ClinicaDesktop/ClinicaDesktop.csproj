@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Reports\HistoricoTurnosReport.rdlc" />
     <None Remove="Reports\PacientesReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Reports\HistoricoTurnosReport.rdlc" />
     <EmbeddedResource Include="Reports\PacientesReport.rdlc" />
   </ItemGroup>
 
