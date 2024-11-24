@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             dataGridTurnos = new DataGridView();
             checkFiltrado = new CheckBox();
@@ -63,19 +63,19 @@
             // 
             dataGridTurnos.AllowUserToAddRows = false;
             dataGridTurnos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = Color.Silver;
-            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = Color.Silver;
+            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridTurnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridTurnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridTurnos.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTurnos.Location = new Point(-1, 136);
             dataGridTurnos.MultiSelect = false;
@@ -115,7 +115,7 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.BackColor = Color.SkyBlue;
+            btnFiltrar.BackColor = Color.LightBlue;
             btnFiltrar.Font = new Font("Segoe UI", 12F);
             btnFiltrar.Location = new Point(633, 13);
             btnFiltrar.Name = "btnFiltrar";
@@ -200,7 +200,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.BackColor = Color.SkyBlue;
+            btnImprimir.BackColor = Color.LightBlue;
             btnImprimir.Font = new Font("Segoe UI", 12F);
             btnImprimir.Location = new Point(585, 455);
             btnImprimir.Name = "btnImprimir";

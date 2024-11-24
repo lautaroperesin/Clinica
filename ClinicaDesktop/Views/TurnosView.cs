@@ -55,7 +55,7 @@ namespace ClinicaDesktop.Views
                 int medicoId = (int)cboMedicos.SelectedValue;
                 DateTime fechaSeleccionada = dtpFechaTurno.Value.Date;
 
-                var turnosFiltrados = listaTurnos.Where(t => t.MedicoEfectorId == medicoId && t.FechaTurno.Value.Date == fechaSeleccionada).ToList();
+                var turnosFiltrados = listaTurnos.Where(t => t.MedicoEfectorId == medicoId && t.FechaTurno.Value.Date == fechaSeleccionada).OrderBy(t => t.FechaTurno.Value.TimeOfDay).ToList();
 
                 bsTurnos.DataSource = turnosFiltrados;
 
@@ -83,6 +83,13 @@ namespace ClinicaDesktop.Views
         private async void btnEditar_Click(object sender, EventArgs e)
         {
             turnoSeleccionado = (Turno)bsTurnos.Current;
+
+            if (turnoSeleccionado.Atendido)
+            {
+                MessageBox.Show("Este turno ya fue atendido.");
+                return;
+            }
+
             var medico = (Medico)cboMedicos.SelectedItem;
             var fecha = dtpFechaTurno.Value;
 
@@ -136,6 +143,8 @@ namespace ClinicaDesktop.Views
             dataGridTurnos.Columns["MedicoEfector"].HeaderText = "Médico Efector";
             dataGridTurnos.Columns["FechaTurno"].HeaderText = "Horario";
             dataGridTurnos.Columns["FechaTurno"].DefaultCellStyle.Format = "HH:mm";
+            dataGridTurnos.Columns["Practica"].HeaderText = "Práctica";
+            dataGridTurnos.Columns["Tecnica"].HeaderText = "Técnica";
 
             dataGridTurnos.Columns["Id"].Visible = false;
             dataGridTurnos.Columns["MedicoEfectorId"].Visible = false;
@@ -170,6 +179,13 @@ namespace ClinicaDesktop.Views
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             turnoSeleccionado = (Turno)bsTurnos.Current;
+
+            if (turnoSeleccionado.Atendido)
+            {
+                MessageBox.Show("Este turno ya fue atendido.");
+                return;
+            }
+
             var confirmacion = MessageBox.Show("¿Estás seguro de que deseas cancelar este turno?",
                                                  "Confirmar cancelación",
                                                  MessageBoxButtons.YesNo);
@@ -197,6 +213,13 @@ namespace ClinicaDesktop.Views
         private void btnAtender_Click(object sender, EventArgs e)
         {
             turnoSeleccionado = (Turno)bsTurnos.Current;
+
+            if (turnoSeleccionado.Atendido)
+            {
+                MessageBox.Show("Este turno ya fue atendido.");
+                return;
+            }
+
             panelAtenderTurno.Visible = true;
             txtPacienteAtendido.Text = turnoSeleccionado.Paciente.NombreCompleto;
             cboFormaPago.DataSource = Enum.GetValues(typeof(FormaPagoEnum));
@@ -227,6 +250,7 @@ namespace ClinicaDesktop.Views
 
                 await CargarGrilla();
                 panelAtenderTurno.Visible = false;
+                txtCoseguro.Text = string.Empty;
             }
             catch (Exception ex)
             {

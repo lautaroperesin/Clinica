@@ -1,10 +1,12 @@
 ﻿using ClinicaServices.Enums;
 using ClinicaServices.Models;
 using ClinicaServices.Services;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,10 +17,12 @@ namespace ClinicaDesktop.Views
 {
     public partial class AgregarEditarTurnoView : Form
     {
-        GenericService<Medico> medicoService = new GenericService<Medico>();
         GenericService<Paciente> pacienteService = new GenericService<Paciente>();
         PracticaService practicaService = new PracticaService();
         TurnoService turnoService = new TurnoService();
+
+        List<Paciente> pacientes = new List<Paciente>();
+        List<Practica> practicas = new List<Practica>();
 
         public Turno turnoActual;
         Medico medicoActual;
@@ -77,6 +81,19 @@ namespace ClinicaDesktop.Views
 
         private void AgregarEditarTurnoView_Load(object sender, EventArgs e)
         {
+            ObtenerListas();
+        }
+
+        private async void ObtenerListas()
+        {
+            var tareas = new List<Task>
+            {
+                Task.Run(async () => pacientes = await pacienteService.GetAllAsync()),
+                Task.Run(async () => practicas = await practicaService.GetAllAsync())
+            };
+
+            await Task.WhenAll(tareas);
+
             CargarCombos(turnoActual, medicoActual, fecha);
         }
 
@@ -84,7 +101,7 @@ namespace ClinicaDesktop.Views
         {
             cboTecnicas.DataSource = Enum.GetValues(typeof(TecnicaEnum));
 
-            cboPacientes.DataSource = await pacienteService.GetAllAsync();
+            cboPacientes.DataSource = pacientes;
             cboPacientes.DisplayMember = "NombreCompleto";
             cboPacientes.ValueMember = "Id";
              
@@ -114,7 +131,8 @@ namespace ClinicaDesktop.Views
             {
                 cboPracticas.Enabled = true;
                 TecnicaEnum tecnicaSeleccionada = (TecnicaEnum)cboTecnicas.SelectedItem;
-                cboPracticas.DataSource = await practicaService.GetPracticasPorTecnicaAsync(tecnicaSeleccionada);
+                var practicasFiltradas = practicas.Where(p => p.Tecnica == tecnicaSeleccionada).ToList();
+                cboPracticas.DataSource = practicasFiltradas;
                 cboPracticas.DisplayMember = "Nombre";
                 cboPracticas.ValueMember = "Id";
             }

@@ -30,7 +30,6 @@
         {
             menuStrip1 = new MenuStrip();
             iconMenuPrincipal = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuSalir = new FontAwesome.Sharp.IconMenuItem();
             iconMenuCaja = new FontAwesome.Sharp.IconMenuItem();
             iconMenuTurnos = new FontAwesome.Sharp.IconMenuItem();
             iconMenuPacientes = new FontAwesome.Sharp.IconMenuItem();
@@ -40,6 +39,7 @@
             iconMenuLocalidades = new FontAwesome.Sharp.IconMenuItem();
             iconMenuListados = new FontAwesome.Sharp.IconMenuItem();
             iconMenuListadoPacientes = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuSalir = new FontAwesome.Sharp.IconMenuItem();
             toolStrip1 = new ToolStrip();
             iconToolHistoricoTurnos = new FontAwesome.Sharp.IconToolStripButton();
             menuStrip1.SuspendLayout();
@@ -50,7 +50,7 @@
             // 
             menuStrip1.BackColor = Color.LightBlue;
             menuStrip1.Font = new Font("Segoe UI", 12F);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuCaja, iconMenuTurnos, iconMenuPacientes, iconMenuMedicos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuListados });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuPrincipal, iconMenuCaja, iconMenuTurnos, iconMenuPacientes, iconMenuMedicos, iconMenuPracticas, iconMenuMutuales, iconMenuLocalidades, iconMenuListados, iconMenuSalir });
             menuStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
@@ -60,7 +60,6 @@
             // 
             // iconMenuPrincipal
             // 
-            iconMenuPrincipal.DropDownItems.AddRange(new ToolStripItem[] { iconMenuSalir });
             iconMenuPrincipal.Font = new Font("Segoe UI", 10F);
             iconMenuPrincipal.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             iconMenuPrincipal.IconColor = Color.Black;
@@ -70,17 +69,6 @@
             iconMenuPrincipal.Name = "iconMenuPrincipal";
             iconMenuPrincipal.Size = new Size(97, 29);
             iconMenuPrincipal.Text = "Principal";
-            // 
-            // iconMenuSalir
-            // 
-            iconMenuSalir.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            iconMenuSalir.IconColor = Color.Black;
-            iconMenuSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuSalir.IconSize = 20;
-            iconMenuSalir.Name = "iconMenuSalir";
-            iconMenuSalir.Size = new Size(103, 24);
-            iconMenuSalir.Text = "Salir";
-            iconMenuSalir.Click += iconMenuSalir_Click;
             // 
             // iconMenuCaja
             // 
@@ -190,6 +178,18 @@
             iconMenuListadoPacientes.Text = "Pacientes";
             iconMenuListadoPacientes.Click += iconMenuListadoPacientes_Click;
             // 
+            // iconMenuSalir
+            // 
+            iconMenuSalir.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            iconMenuSalir.IconColor = Color.Black;
+            iconMenuSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuSalir.IconSize = 25;
+            iconMenuSalir.ImageScaling = ToolStripItemImageScaling.None;
+            iconMenuSalir.Name = "iconMenuSalir";
+            iconMenuSalir.Size = new Size(78, 29);
+            iconMenuSalir.Text = "Salir";
+            iconMenuSalir.Click += iconMenuSalir_Click;
+            // 
             // toolStrip1
             // 
             toolStrip1.BackColor = Color.DarkTurquoise;
@@ -211,7 +211,7 @@
             iconToolHistoricoTurnos.ImageTransparentColor = Color.Magenta;
             iconToolHistoricoTurnos.Name = "iconToolHistoricoTurnos";
             iconToolHistoricoTurnos.Size = new Size(121, 29);
-            iconToolHistoricoTurnos.Text = "Historico turnos";
+            iconToolHistoricoTurnos.Text = "Histórico turnos";
             iconToolHistoricoTurnos.ToolTipText = "Historico turnos";
             iconToolHistoricoTurnos.Click += iconToolHistoricoTurnos_Click;
             // 
@@ -250,8 +250,8 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuCaja;
         private FontAwesome.Sharp.IconMenuItem iconMenuListados;
         private FontAwesome.Sharp.IconMenuItem iconMenuListadoPacientes;
-        private FontAwesome.Sharp.IconMenuItem iconMenuSalir;
         private ToolStrip toolStrip1;
         private FontAwesome.Sharp.IconToolStripButton iconToolHistoricoTurnos;
+        private FontAwesome.Sharp.IconMenuItem iconMenuSalir;
     }
 }

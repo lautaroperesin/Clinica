@@ -288,7 +288,7 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.BackColor = Color.LightBlue;
+            btnEliminar.BackColor = Color.IndianRed;
             btnEliminar.Font = new Font("Segoe UI", 12F);
             btnEliminar.Location = new Point(59, 431);
             btnEliminar.Name = "btnEliminar";
@@ -301,7 +301,7 @@
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.BackColor = Color.LightBlue;
+            btnAgregar.BackColor = Color.MediumAquamarine;
             btnAgregar.Font = new Font("Segoe UI", 12F);
             btnAgregar.Location = new Point(59, 389);
             btnAgregar.Name = "btnAgregar";

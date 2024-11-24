@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             cboMedicos = new ComboBox();
             label1 = new Label();
             dtpFechaTurno = new DateTimePicker();
@@ -118,19 +118,19 @@
             // 
             dataGridTurnos.AllowUserToAddRows = false;
             dataGridTurnos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridTurnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridTurnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridTurnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridTurnos.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridTurnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTurnos.Location = new Point(206, 112);
             dataGridTurnos.MultiSelect = false;
@@ -183,12 +183,12 @@
             // btnAtender
             // 
             btnAtender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAtender.BackColor = Color.LightBlue;
+            btnAtender.BackColor = Color.MediumTurquoise;
             btnAtender.Enabled = false;
             btnAtender.Font = new Font("Segoe UI", 12F);
-            btnAtender.Location = new Point(3, 305);
+            btnAtender.Location = new Point(3, 260);
             btnAtender.Name = "btnAtender";
-            btnAtender.Size = new Size(197, 33);
+            btnAtender.Size = new Size(197, 54);
             btnAtender.TabIndex = 31;
             btnAtender.Text = " Atender";
             btnAtender.UseVisualStyleBackColor = false;
@@ -197,7 +197,7 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.BackColor = Color.LightBlue;
+            btnEliminar.BackColor = Color.IndianRed;
             btnEliminar.Enabled = false;
             btnEliminar.Font = new Font("Segoe UI", 12F);
             btnEliminar.Location = new Point(3, 428);
@@ -211,7 +211,7 @@
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditar.BackColor = Color.LightBlue;
+            btnEditar.BackColor = Color.Azure;
             btnEditar.Enabled = false;
             btnEditar.Font = new Font("Segoe UI", 12F);
             btnEditar.Location = new Point(3, 387);
@@ -225,7 +225,7 @@
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.BackColor = Color.LightBlue;
+            btnAgregar.BackColor = Color.MediumAquamarine;
             btnAgregar.Enabled = false;
             btnAgregar.Font = new Font("Segoe UI", 12F);
             btnAgregar.Location = new Point(3, 346);

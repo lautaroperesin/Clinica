@@ -12,28 +12,16 @@
           </Border>
         </Style>
       </Line>
-      <Line Name="Line2">
-        <Top>1.13771cm</Top>
-        <Left>0.7112cm</Left>
-        <Height>0cm</Height>
-        <Width>14.77667cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
       <Tablix Name="Tablix4">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>12.5115cm</Width>
+              <Width>14.46202cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.79939cm</Height>
+              <Height>0.85231cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -54,6 +42,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Id</rd:DefaultName>
+                          <Top>0cm</Top>
                           <Height>0.6cm</Height>
                           <Width>0.67437cm</Width>
                           <Style>
@@ -96,36 +85,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="Direccion">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Direccion.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Direccion</rd:DefaultName>
-                          <Top>0cm</Top>
-                          <Left>9.65748cm</Left>
-                          <Height>0.6cm</Height>
-                          <Width>2.85403cm</Width>
-                          <ZIndex>2</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
                         <Textbox Name="Documento">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -145,7 +104,7 @@
                           <Left>4.56785cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
-                          <ZIndex>3</ZIndex>
+                          <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -185,9 +144,9 @@
         <DataSetName>DSPacientes</DataSetName>
         <Top>0.17639cm</Top>
         <Left>1.18745cm</Left>
-        <Height>0.79939cm</Height>
-        <Width>12.5115cm</Width>
-        <ZIndex>2</ZIndex>
+        <Height>0.85231cm</Height>
+        <Width>14.46202cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -212,7 +171,37 @@
         <Top>0.17639cm</Top>
         <Left>2.22342cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.16146cm</Width>
+        <Width>3.35549cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Mutual">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Mutual.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Mutual</rd:DefaultName>
+        <Top>0.17639cm</Top>
+        <Left>10.64947cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -224,14 +213,44 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Localidad">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Localidad.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Localidad</rd:DefaultName>
+        <Top>0.17639cm</Top>
+        <Left>13.14947cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>0.45636in</Height>
+    <Height>0.50917in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.24342in</Width>
   <Page>
     <PageHeader>
-      <Height>2.21396cm</Height>
+      <Height>2.24923cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -297,36 +316,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox4">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Dirección</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.61396cm</Top>
-          <Left>10.84493cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.83855cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox5">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -346,7 +335,7 @@
           <Left>8.2553cm</Left>
           <Height>0.6cm</Height>
           <Width>1.83854cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -376,7 +365,7 @@
           <Left>1.18745cm</Left>
           <Height>0.6cm</Height>
           <Width>0.56854cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -406,7 +395,7 @@
           <Left>2.22342cm</Left>
           <Height>0.6cm</Height>
           <Width>1.44167cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -422,13 +411,73 @@
           <Left>0.7112cm</Left>
           <Height>0cm</Height>
           <Width>14.77667cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Localidad</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.64923cm</Top>
+          <Left>13.14947cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.83854cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox9">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Mutual</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.64923cm</Top>
+          <Left>10.64947cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.83854cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -437,7 +486,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.4023cm</Height>
+      <Height>1.55787cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -456,7 +505,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.43689cm</Top>
+          <Top>0.59246cm</Top>
           <Left>12.98787cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
@@ -470,36 +519,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox7">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Página:</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.43689cm</Top>
-          <Left>11.62558cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.36229cm</Width>
+        <Line Name="Line2">
+          <Left>0.7112cm</Left>
+          <Height>0cm</Height>
+          <Width>14.77667cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
           </Style>
-        </Textbox>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -551,6 +581,14 @@
         </Field>
         <Field Name="Documento">
           <DataField>Documento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Localidad">
+          <DataField>Localidad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mutual">
+          <DataField>Mutual</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

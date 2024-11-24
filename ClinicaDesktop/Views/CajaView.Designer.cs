@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dataGridCaja = new DataGridView();
             label1 = new Label();
             label2 = new Label();
-            txtTotal = new TextBox();
-            btnQuitar = new Button();
             lblFecha = new Label();
             dtpDiaActual = new DateTimePicker();
             lblNoTurnos = new Label();
             btnVolver = new Button();
+            numericTotal = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridCaja).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericTotal).BeginInit();
             SuspendLayout();
             // 
             // dataGridCaja
             // 
             dataGridCaja.AllowUserToAddRows = false;
             dataGridCaja.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridCaja.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridCaja.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridCaja.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridCaja.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridCaja.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridCaja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridCaja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridCaja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridCaja.Location = new Point(0, 97);
             dataGridCaja.MultiSelect = false;
@@ -90,30 +90,6 @@
             label2.Size = new Size(56, 21);
             label2.TabIndex = 5;
             label2.Text = "TOTAL:";
-            // 
-            // txtTotal
-            // 
-            txtTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtTotal.Enabled = false;
-            txtTotal.Font = new Font("Segoe UI", 12F);
-            txtTotal.Location = new Point(807, 531);
-            txtTotal.Name = "txtTotal";
-            txtTotal.ReadOnly = true;
-            txtTotal.Size = new Size(125, 29);
-            txtTotal.TabIndex = 6;
-            // 
-            // btnQuitar
-            // 
-            btnQuitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnQuitar.BackColor = Color.LightBlue;
-            btnQuitar.Font = new Font("Segoe UI", 12F);
-            btnQuitar.Location = new Point(205, 527);
-            btnQuitar.Name = "btnQuitar";
-            btnQuitar.Size = new Size(178, 35);
-            btnQuitar.TabIndex = 7;
-            btnQuitar.Text = "Quitar";
-            btnQuitar.UseVisualStyleBackColor = false;
-            btnQuitar.Click += btnQuitar_Click;
             // 
             // lblFecha
             // 
@@ -162,18 +138,29 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
+            // numericTotal
+            // 
+            numericTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            numericTotal.Enabled = false;
+            numericTotal.Font = new Font("Segoe UI", 12F);
+            numericTotal.Location = new Point(807, 531);
+            numericTotal.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericTotal.Name = "numericTotal";
+            numericTotal.ReadOnly = true;
+            numericTotal.Size = new Size(120, 29);
+            numericTotal.TabIndex = 12;
+            // 
             // CajaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(1038, 588);
+            Controls.Add(numericTotal);
             Controls.Add(btnVolver);
             Controls.Add(lblNoTurnos);
             Controls.Add(dtpDiaActual);
             Controls.Add(lblFecha);
-            Controls.Add(btnQuitar);
-            Controls.Add(txtTotal);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridCaja);
@@ -181,6 +168,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Caja";
             ((System.ComponentModel.ISupportInitialize)dataGridCaja).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericTotal).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -190,11 +178,10 @@
         private DataGridView dataGridCaja;
         private Label label1;
         private Label label2;
-        private TextBox txtTotal;
-        private Button btnQuitar;
         private Label lblFecha;
         private DateTimePicker dtpDiaActual;
         private Label lblNoTurnos;
         private Button btnVolver;
+        private NumericUpDown numericTotal;
     }
 }

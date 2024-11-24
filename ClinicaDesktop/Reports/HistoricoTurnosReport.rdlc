@@ -104,7 +104,7 @@
                                   <rd:DefaultName>FormaDePago</rd:DefaultName>
                                   <Left>0.16204cm</Left>
                                   <Height>0.6cm</Height>
-                                  <Width>2.5cm</Width>
+                                  <Width>7.77484cm</Width>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -119,7 +119,7 @@
                               <KeepTogether>true</KeepTogether>
                               <Top>0.19085cm</Top>
                               <Height>0.6cm</Height>
-                              <Width>6.66688cm</Width>
+                              <Width>7.93688cm</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -338,9 +338,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Paciente</rd:DefaultName>
                               <Top>0.07cm</Top>
-                              <Left>2.67639cm</Left>
+                              <Left>2.64111cm</Left>
                               <Height>0.6cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>3.05562cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -370,7 +370,7 @@
                               <Top>0.07cm</Top>
                               <Left>5.87312cm</Left>
                               <Height>0.6cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>2.66757cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -455,7 +455,6 @@
                             </Line>
                             <Line Name="Line4">
                               <Top>0.84639cm</Top>
-                              <Left>0cm</Left>
                               <Height>0cm</Height>
                               <Width>13.19245cm</Width>
                               <ZIndex>6</ZIndex>
@@ -489,7 +488,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total pagos en </Value>
+                                  <Value>Total </Value>
+                                  <Style />
+                                </TextRun>
+                                <TextRun>
+                                  <Value>="Pagos en " + First(Fields!FormaDePago.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                                <TextRun>
+                                  <Value>: </Value>
                                   <Style />
                                 </TextRun>
                                 <TextRun>
@@ -570,7 +577,7 @@
       <Width>6.01425in</Width>
       <Page>
         <PageHeader>
-          <Height>1.53458cm</Height>
+          <Height>2.03729cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -594,8 +601,8 @@
               <rd:DefaultName>TituloReporte</rd:DefaultName>
               <Top>0.31432cm</Top>
               <Left>1.24037cm</Left>
-              <Height>1.04387cm</Height>
-              <Width>9.32625cm</Width>
+              <Height>1.54658cm</Height>
+              <Width>11.65929cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>

@@ -26,8 +26,6 @@ namespace ClinicaDesktop.DataSet {
         
         private DSPacientesDataTable tableDSPacientes;
         
-        private DSLocalidadesDataTable tableDSLocalidades;
-        
         private DSTurnosDataTable tableDSTurnos;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -63,9 +61,6 @@ namespace ClinicaDesktop.DataSet {
                 if ((ds.Tables["DSPacientes"] != null)) {
                     base.Tables.Add(new DSPacientesDataTable(ds.Tables["DSPacientes"]));
                 }
-                if ((ds.Tables["DSLocalidades"] != null)) {
-                    base.Tables.Add(new DSLocalidadesDataTable(ds.Tables["DSLocalidades"]));
-                }
                 if ((ds.Tables["DSTurnos"] != null)) {
                     base.Tables.Add(new DSTurnosDataTable(ds.Tables["DSTurnos"]));
                 }
@@ -94,16 +89,6 @@ namespace ClinicaDesktop.DataSet {
         public DSPacientesDataTable DSPacientes {
             get {
                 return this.tableDSPacientes;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DSLocalidadesDataTable DSLocalidades {
-            get {
-                return this.tableDSLocalidades;
             }
         }
         
@@ -187,9 +172,6 @@ namespace ClinicaDesktop.DataSet {
                 if ((ds.Tables["DSPacientes"] != null)) {
                     base.Tables.Add(new DSPacientesDataTable(ds.Tables["DSPacientes"]));
                 }
-                if ((ds.Tables["DSLocalidades"] != null)) {
-                    base.Tables.Add(new DSLocalidadesDataTable(ds.Tables["DSLocalidades"]));
-                }
                 if ((ds.Tables["DSTurnos"] != null)) {
                     base.Tables.Add(new DSTurnosDataTable(ds.Tables["DSTurnos"]));
                 }
@@ -232,12 +214,6 @@ namespace ClinicaDesktop.DataSet {
                     this.tableDSPacientes.InitVars();
                 }
             }
-            this.tableDSLocalidades = ((DSLocalidadesDataTable)(base.Tables["DSLocalidades"]));
-            if ((initTable == true)) {
-                if ((this.tableDSLocalidades != null)) {
-                    this.tableDSLocalidades.InitVars();
-                }
-            }
             this.tableDSTurnos = ((DSTurnosDataTable)(base.Tables["DSTurnos"]));
             if ((initTable == true)) {
                 if ((this.tableDSTurnos != null)) {
@@ -256,8 +232,6 @@ namespace ClinicaDesktop.DataSet {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDSPacientes = new DSPacientesDataTable();
             base.Tables.Add(this.tableDSPacientes);
-            this.tableDSLocalidades = new DSLocalidadesDataTable();
-            base.Tables.Add(this.tableDSLocalidades);
             this.tableDSTurnos = new DSTurnosDataTable();
             base.Tables.Add(this.tableDSTurnos);
         }
@@ -265,12 +239,6 @@ namespace ClinicaDesktop.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeDSPacientes() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDSLocalidades() {
             return false;
         }
         
@@ -339,9 +307,6 @@ namespace ClinicaDesktop.DataSet {
         public delegate void DSPacientesRowChangeEventHandler(object sender, DSPacientesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DSLocalidadesRowChangeEventHandler(object sender, DSLocalidadesRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void DSTurnosRowChangeEventHandler(object sender, DSTurnosRowChangeEvent e);
         
         /// <summary>
@@ -360,6 +325,10 @@ namespace ClinicaDesktop.DataSet {
             private global::System.Data.DataColumn columnTelefono;
             
             private global::System.Data.DataColumn columnDocumento;
+            
+            private global::System.Data.DataColumn columnLocalidad;
+            
+            private global::System.Data.DataColumn columnMutual;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -438,6 +407,22 @@ namespace ClinicaDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LocalidadColumn {
+                get {
+                    return this.columnLocalidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MutualColumn {
+                get {
+                    return this.columnMutual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -473,14 +458,16 @@ namespace ClinicaDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSPacientesRow AddDSPacientesRow(int Id, string NombreCompleto, string Direccion, string Telefono, string Documento) {
+            public DSPacientesRow AddDSPacientesRow(int Id, string NombreCompleto, string Direccion, string Telefono, string Documento, string Localidad, string Mutual) {
                 DSPacientesRow rowDSPacientesRow = ((DSPacientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         NombreCompleto,
                         Direccion,
                         Telefono,
-                        Documento};
+                        Documento,
+                        Localidad,
+                        Mutual};
                 rowDSPacientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDSPacientesRow);
                 return rowDSPacientesRow;
@@ -508,6 +495,8 @@ namespace ClinicaDesktop.DataSet {
                 this.columnDireccion = base.Columns["Direccion"];
                 this.columnTelefono = base.Columns["Telefono"];
                 this.columnDocumento = base.Columns["Documento"];
+                this.columnLocalidad = base.Columns["Localidad"];
+                this.columnMutual = base.Columns["Mutual"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,6 +512,10 @@ namespace ClinicaDesktop.DataSet {
                 base.Columns.Add(this.columnTelefono);
                 this.columnDocumento = new global::System.Data.DataColumn("Documento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDocumento);
+                this.columnLocalidad = new global::System.Data.DataColumn("Localidad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocalidad);
+                this.columnMutual = new global::System.Data.DataColumn("Mutual", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMutual);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,269 +602,6 @@ namespace ClinicaDesktop.DataSet {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "DSPacientesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DSLocalidadesDataTable : global::System.Data.TypedTableBase<DSLocalidadesRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnNombre;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesDataTable() {
-                this.TableName = "DSLocalidades";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DSLocalidadesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [System.ObsoleteAttribute("This API supports obsolete formatter-based serialization. It should not be called" +
-                " or extended by application code.", DiagnosticId="SYSLIB0051")]
-            protected DSLocalidadesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
-                get {
-                    return this.columnNombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRow this[int index] {
-                get {
-                    return ((DSLocalidadesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DSLocalidadesRowChangeEventHandler DSLocalidadesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DSLocalidadesRowChangeEventHandler DSLocalidadesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DSLocalidadesRowChangeEventHandler DSLocalidadesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DSLocalidadesRowChangeEventHandler DSLocalidadesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDSLocalidadesRow(DSLocalidadesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRow AddDSLocalidadesRow(int Id, string Nombre) {
-                DSLocalidadesRow rowDSLocalidadesRow = ((DSLocalidadesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Id,
-                        Nombre};
-                rowDSLocalidadesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDSLocalidadesRow);
-                return rowDSLocalidadesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                DSLocalidadesDataTable cln = ((DSLocalidadesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new DSLocalidadesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnNombre = base.Columns["Nombre"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRow NewDSLocalidadesRow() {
-                return ((DSLocalidadesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DSLocalidadesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(DSLocalidadesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.DSLocalidadesRowChanged != null)) {
-                    this.DSLocalidadesRowChanged(this, new DSLocalidadesRowChangeEvent(((DSLocalidadesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.DSLocalidadesRowChanging != null)) {
-                    this.DSLocalidadesRowChanging(this, new DSLocalidadesRowChangeEvent(((DSLocalidadesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.DSLocalidadesRowDeleted != null)) {
-                    this.DSLocalidadesRowDeleted(this, new DSLocalidadesRowChangeEvent(((DSLocalidadesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.DSLocalidadesRowDeleting != null)) {
-                    this.DSLocalidadesRowDeleting(this, new DSLocalidadesRowChangeEvent(((DSLocalidadesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDSLocalidadesRow(DSLocalidadesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ClinicaDataSet ds = new ClinicaDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DSLocalidadesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1341,6 +1071,38 @@ namespace ClinicaDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Localidad {
+                get {
+                    try {
+                        return ((string)(this[this.tableDSPacientes.LocalidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Localidad\' de la tabla \'DSPacientes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDSPacientes.LocalidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Mutual {
+                get {
+                    try {
+                        return ((string)(this[this.tableDSPacientes.MutualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Mutual\' de la tabla \'DSPacientes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDSPacientes.MutualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableDSPacientes.IdColumn);
             }
@@ -1398,76 +1160,29 @@ namespace ClinicaDesktop.DataSet {
             public void SetDocumentoNull() {
                 this[this.tableDSPacientes.DocumentoColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class DSLocalidadesRow : global::System.Data.DataRow {
-            
-            private DSLocalidadesDataTable tableDSLocalidades;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DSLocalidadesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableDSLocalidades = ((DSLocalidadesDataTable)(this.Table));
+            public bool IsLocalidadNull() {
+                return this.IsNull(this.tableDSPacientes.LocalidadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Id {
-                get {
-                    try {
-                        return ((int)(this[this.tableDSLocalidades.IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id\' de la tabla \'DSLocalidades\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDSLocalidades.IdColumn] = value;
-                }
+            public void SetLocalidadNull() {
+                this[this.tableDSPacientes.LocalidadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableDSLocalidades.NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'DSLocalidades\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDSLocalidades.NombreColumn] = value;
-                }
+            public bool IsMutualNull() {
+                return this.IsNull(this.tableDSPacientes.MutualColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIdNull() {
-                return this.IsNull(this.tableDSLocalidades.IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIdNull() {
-                this[this.tableDSLocalidades.IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableDSLocalidades.NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableDSLocalidades.NombreColumn] = global::System.Convert.DBNull;
+            public void SetMutualNull() {
+                this[this.tableDSPacientes.MutualColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1702,40 +1417,6 @@ namespace ClinicaDesktop.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DSPacientesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DSLocalidadesRowChangeEvent : global::System.EventArgs {
-            
-            private DSLocalidadesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRowChangeEvent(DSLocalidadesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRow Row {
                 get {
                     return this.eventRow;
                 }

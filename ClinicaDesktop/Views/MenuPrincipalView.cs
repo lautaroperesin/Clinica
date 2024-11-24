@@ -58,23 +58,23 @@ namespace ClinicaDesktop
             pacientesViewReport.ShowDialog();
         }
 
+        private void iconToolHistoricoTurnos_Click(object sender, EventArgs e)
+        {
+            HistoricoTurnosView historicoTurnosView = new HistoricoTurnosView();
+            historicoTurnosView.ShowDialog();
+        }
+
         private void iconMenuSalir_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Está seguro de que quiere cerrar el sistema?",
-                                       "Confirmar cierre",
-                                       MessageBoxButtons.YesNo,
-                                       MessageBoxIcon.Question);
+                                   "Confirmar cierre",
+                                   MessageBoxButtons.YesNo,
+                                   MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
             }
-        }
-
-        private void iconToolHistoricoTurnos_Click(object sender, EventArgs e)
-        {
-            HistoricoTurnosView historicoTurnosView = new HistoricoTurnosView();
-            historicoTurnosView.ShowDialog();
         }
     }
 }

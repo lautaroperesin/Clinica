@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             errorProvider = new ErrorProvider(components);
             label6 = new Label();
             txtBuscar = new TextBox();
@@ -84,19 +84,19 @@
             // 
             dataGridMedicos.AllowUserToAddRows = false;
             dataGridMedicos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridMedicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridMedicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridMedicos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridMedicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridMedicos.BackgroundColor = Color.SkyBlue;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridMedicos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridMedicos.Location = new Point(310, 100);
             dataGridMedicos.MultiSelect = false;
@@ -252,7 +252,7 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.BackColor = Color.LightBlue;
+            btnEliminar.BackColor = Color.IndianRed;
             btnEliminar.Font = new Font("Segoe UI", 12F);
             btnEliminar.Location = new Point(49, 415);
             btnEliminar.Name = "btnEliminar";
@@ -265,7 +265,7 @@
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.BackColor = Color.LightBlue;
+            btnAgregar.BackColor = Color.MediumAquamarine;
             btnAgregar.Font = new Font("Segoe UI", 12F);
             btnAgregar.Location = new Point(49, 373);
             btnAgregar.Name = "btnAgregar";

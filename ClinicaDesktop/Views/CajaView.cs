@@ -62,58 +62,9 @@ namespace ClinicaDesktop.Views
             dataGridCaja.Columns["Atendido"].Visible = false;
         }
 
-        private decimal CalcularTotalCoseguro()
+        private void CalcularTotalCoseguro()
         {
-            decimal total = 0;
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow row in dataGridCaja.Rows)
-            {
-                // Verifica que la fila no sea nueva
-                if (!row.IsNewRow)
-                {
-                    // Verifica si el valor de "FormaPago" es null antes de convertir
-                    if (row.Cells["FormaPago"].Value != null)
-                    {
-                        FormaPagoEnum formaPago = (FormaPagoEnum)row.Cells["FormaPago"].Value;
-
-                        // Solo suma el coseguro si la forma de pago es distinta a "debe"
-                        if (formaPago != FormaPagoEnum.Debe)
-                        {
-                            decimal coseguro = Convert.ToDecimal(row.Cells["Coseguro"].Value);
-                            total += coseguro;
-                        }
-                    }
-                }
-            }
-
-            txtTotal.Text = total.ToString("C2");
-            return total;
-        }
-
-        private async void btnQuitar_Click(object sender, EventArgs e)
-        {
-            turnoSeleccioando = (Turno)bsTurnos.Current;
-
-            if (turnoSeleccioando == null)
-            {
-                MessageBox.Show("Debe seleccionar un turno para eliminar.", "Error al eliminar el turno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                await turnoService.DeleteAsync(turnoSeleccioando.Id);
-                MessageBox.Show("Turno eliminado con éxito.");
-
-                turnoSeleccioando = null;
-                await CargarGrilla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error al eliminar el turno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            numericTotal.Value = (decimal)listaTurnosAtendidos.Where(t => t.FormaPago != FormaPagoEnum.Debe).Sum(t => t.Coseguro);
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

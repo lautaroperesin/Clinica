@@ -114,7 +114,7 @@ namespace ClinicaDesktop.Views
                 tituloReporte = $"Listado de turnos desde {dtpDesde.Value.ToShortDateString()} hasta {dtpHasta.Value.ToShortDateString()}";
             }
 
-            var reporteHistoricoTurnos = new HistoricoTurnosViewReport(turnos, tituloReporte);
+            var reporteHistoricoTurnos = new HistoricoTurnosViewReport(turnosAImprimir, tituloReporte);
             reporteHistoricoTurnos.ShowDialog();
         } 
     }
