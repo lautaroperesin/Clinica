@@ -32,7 +32,17 @@ namespace ClinicaDesktop.ViewReports
         {
             reporte.LocalReport.ReportEmbeddedResource = "ClinicaDesktop.Reports.PacientesReport.rdlc";
             var pacientes = await pacienteService.GetAllAsync();
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSPacientes", pacientes));
+            var listaPacientes = pacientes.Select(p => new
+            {
+                Id = p.Id,
+                NombreCompleto = p.NombreCompleto,
+                Telefono = p.Telefono,
+                Direccion = p.Direccion,
+                Documento = p.Documento,
+                Mutual = p.Mutual.Nombre,
+                Localidad = p.Localidad.Nombre,
+            }).ToList();
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSPacientes", listaPacientes));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
             reporte.ZoomMode = ZoomMode.Percent;
             reporte.RefreshReport();

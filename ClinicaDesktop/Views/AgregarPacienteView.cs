@@ -49,7 +49,7 @@ namespace ClinicaDesktop.Views
                 Direccion = txtDireccion.Text,
                 Telefono = txtTelefono.Text,
                 Documento = txtDni.Text,
-                FechaNacimiento = dtpFechaNacimiento.Value,
+                FechaNacimiento = dtpFechaNacimiento.Value.Date,
                 MutualId = (int)cboMutuales.SelectedValue,
                 LocalidadId = (int?)cboLocalidades.SelectedValue
             };
