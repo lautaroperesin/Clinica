@@ -64,7 +64,7 @@ namespace ClinicaDesktop.Views
 
         private void CalcularTotalCoseguro()
         {
-            numericTotal.Value = (decimal)listaTurnosAtendidos.Where(t => t.FormaPago != FormaPagoEnum.Debe).Sum(t => t.Coseguro);
+            numericTotal.Value = (decimal)listaTurnosAtendidos.Where(t => t.FormaPago != FormaPagoEnum.Debe && t.FechaTurno.Value.Date == DateTime.Today).Sum(t => t.Coseguro);
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

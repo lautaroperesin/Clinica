@@ -76,5 +76,11 @@ namespace ClinicaDesktop
                 Application.Exit();
             }
         }
+
+        private void iconToolStripPagosPendientes_Click(object sender, EventArgs e)
+        {
+            PagosPendientesView pagosPendientesView = new PagosPendientesView();
+            pagosPendientesView.ShowDialog();
+        }
     }
 }

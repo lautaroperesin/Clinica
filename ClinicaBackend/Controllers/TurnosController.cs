@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ClinicaBackend.DataContext;
 using ClinicaServices.Models;
+using ClinicaServices.Enums;
 
 namespace ClinicaBackend.Controllers
 {
@@ -78,27 +79,16 @@ namespace ClinicaBackend.Controllers
             }
         }
 
-        [HttpGet("{medicoId}/{fecha}")]
-        public async Task<IActionResult> GetTurnosFiltrados(int medicoId, DateTime fecha)
+        [HttpGet("pagosPendientes")]
+        public async Task<ActionResult<IEnumerable<Turno>>> GetTurnosConFormaPagoDebe()
         {
-            if (medicoId <= 0)
-                return BadRequest("El ID del médico no es válido.");
-
-            try
-            {
-                var turnos = await _context.Turnos.Where(c => c.MedicoEfectorId == medicoId && c.FechaTurno.Value.Date == fecha.Date)
-                              .OrderBy(t => t.FechaTurno)
-                              .Include(t => t.Paciente)
-                               .ThenInclude(p => p.Mutual)
-                              .Include(t => t.MedicoEfector)
-                              .Include(t => t.Practica)
-                              .ToListAsync();
-                return Ok(turnos);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno: {ex.Message}");
-            }
+            return await _context.Turnos
+                .Where(t => t.FormaPago == FormaPagoEnum.Debe)
+                .Include(t => t.Paciente)
+                    .ThenInclude(p => p.Mutual)
+                .Include(t => t.MedicoEfector)
+                .Include(t => t.Practica)
+                .ToListAsync();
         }
 
         // GET: api/Turnos/5

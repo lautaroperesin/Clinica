@@ -42,6 +42,7 @@
             iconMenuSalir = new FontAwesome.Sharp.IconMenuItem();
             toolStrip1 = new ToolStrip();
             iconToolHistoricoTurnos = new FontAwesome.Sharp.IconToolStripButton();
+            iconToolStripPagosPendientes = new FontAwesome.Sharp.IconToolStripButton();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -194,7 +195,7 @@
             // 
             toolStrip1.BackColor = Color.DarkTurquoise;
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { iconToolHistoricoTurnos });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { iconToolHistoricoTurnos, iconToolStripPagosPendientes });
             toolStrip1.Location = new Point(0, 33);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1156, 32);
@@ -214,6 +215,20 @@
             iconToolHistoricoTurnos.Text = "Histórico turnos";
             iconToolHistoricoTurnos.ToolTipText = "Historico turnos";
             iconToolHistoricoTurnos.Click += iconToolHistoricoTurnos_Click;
+            // 
+            // iconToolStripPagosPendientes
+            // 
+            iconToolStripPagosPendientes.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
+            iconToolStripPagosPendientes.IconColor = Color.Black;
+            iconToolStripPagosPendientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconToolStripPagosPendientes.IconSize = 25;
+            iconToolStripPagosPendientes.ImageScaling = ToolStripItemImageScaling.None;
+            iconToolStripPagosPendientes.ImageTransparentColor = Color.Magenta;
+            iconToolStripPagosPendientes.Name = "iconToolStripPagosPendientes";
+            iconToolStripPagosPendientes.Size = new Size(129, 29);
+            iconToolStripPagosPendientes.Text = "Pagos pendientes";
+            iconToolStripPagosPendientes.ToolTipText = "iconToolStripButton1";
+            iconToolStripPagosPendientes.Click += iconToolStripPagosPendientes_Click;
             // 
             // MenuPrincipalView
             // 
@@ -253,5 +268,6 @@
         private ToolStrip toolStrip1;
         private FontAwesome.Sharp.IconToolStripButton iconToolHistoricoTurnos;
         private FontAwesome.Sharp.IconMenuItem iconMenuSalir;
+        private FontAwesome.Sharp.IconToolStripButton iconToolStripPagosPendientes;
     }
 }

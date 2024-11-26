@@ -9,7 +9,7 @@ namespace ClinicaServices.Interfaces
 {
     public interface ITurnoService : IGenericService<Turno>
     {
-        //Task<List<Turno>> GetTurnosPorMedicoYFecha(int medicoId, DateTime fecha);
         public Task<List<Turno>?> GetTurnosAtendidos();
+        public Task<List<Turno>?> GetTurnosConFormaPagoDebe();
     }
 }

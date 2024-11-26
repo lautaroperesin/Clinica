@@ -32,5 +32,16 @@ namespace ClinicaServices.Services
             }
             return JsonSerializer.Deserialize<List<DateTime>>(content, options);
         }
+
+        public async Task<List<Turno>?> GetTurnosConFormaPagoDebe()
+        {
+            var response = await client.GetAsync($"{_endpoint}/pagosPendientes");
+            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content?.ToString());
+            }
+            return JsonSerializer.Deserialize<List<Turno>>(content, options);
+        }
     }
 }
