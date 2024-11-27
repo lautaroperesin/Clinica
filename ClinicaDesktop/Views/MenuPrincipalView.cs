@@ -22,12 +22,6 @@ namespace ClinicaDesktop
             medicosView.ShowDialog();
         }
 
-        private void iconMenuTurnos_Click(object sender, EventArgs e)
-        {
-            TurnosView turnosView = new TurnosView();
-            turnosView.ShowDialog();
-        }
-
         private void iconMenuMutuales_Click(object sender, EventArgs e)
         {
             MutualesView mutualesView = new MutualesView();
@@ -58,12 +52,6 @@ namespace ClinicaDesktop
             pacientesViewReport.ShowDialog();
         }
 
-        private void iconToolHistoricoTurnos_Click(object sender, EventArgs e)
-        {
-            HistoricoTurnosView historicoTurnosView = new HistoricoTurnosView();
-            historicoTurnosView.ShowDialog();
-        }
-
         private void iconMenuSalir_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Está seguro de que quiere cerrar el sistema?",
@@ -77,10 +65,22 @@ namespace ClinicaDesktop
             }
         }
 
-        private void iconToolStripPagosPendientes_Click(object sender, EventArgs e)
+        private void iconMenuPagosPendientes_Click(object sender, EventArgs e)
         {
             PagosPendientesView pagosPendientesView = new PagosPendientesView();
             pagosPendientesView.ShowDialog();
+        }
+
+        private void iconMenuHistoricoTurnos_Click(object sender, EventArgs e)
+        {
+            HistoricoTurnosView historicoTurnosView = new HistoricoTurnosView();
+            historicoTurnosView.ShowDialog();
+        }
+
+        private void iconMenuTurnos_Click(object sender, EventArgs e)
+        {
+            TurnosView turnosView = new TurnosView();
+            turnosView.ShowDialog();
         }
     }
 }

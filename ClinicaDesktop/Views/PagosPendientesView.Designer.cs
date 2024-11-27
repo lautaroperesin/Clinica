@@ -164,7 +164,7 @@
             Controls.Add(dataGridPagosPendientes);
             Name = "PagosPendientesView";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "PagosPendientesView";
+            Text = "Pagos Pendientes";
             Load += PagosPendientesView_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridPagosPendientes).EndInit();
             ResumeLayout(false);
